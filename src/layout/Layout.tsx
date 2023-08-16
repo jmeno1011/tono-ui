@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Layout.module.css";
-import Nav from "components/common/Nav/Nav";
-import { Header } from "components/common";
+import { Header, Nav } from "components/common";
 import { Outlet } from "react-router-dom";
 import useLocalStorage from "hooks/useLocalStorage";
 
