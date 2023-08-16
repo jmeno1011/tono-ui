@@ -1,0 +1,6 @@
+@media(min-width: 1200px) {
+    .container{
+        flex-shrink: 0;
+        width: 300px;
+    }
+}
