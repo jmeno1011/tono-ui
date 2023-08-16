@@ -1,6 +1,5 @@
 .container{
     padding: 8px 16px;
-    height: var(--header-height);
     width: calc(100% - var(--nav-width));
     border-bottom: thin solid var(--border-color);
     display: flex;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Layout.module.css";
 import Nav from "components/common/Nav/Nav";
 import { Header } from "components/common";
@@ -10,7 +10,7 @@ export default function Layout() {
     "(prefers-color-scheme: dark)"
   ).matches;
   console.log(defaultTheme);
-  
+
   const [theme, setTheme] = useLocalStorage(
     "theme",
     defaultTheme ? "dark" : "light"
@@ -24,7 +24,11 @@ export default function Layout() {
       <Nav />
       <Header />
       <button onClick={switchTheme}>{theme}</button>
-      <Outlet />
+      <div className={styles.wrapper}>
+        <div className={styles.page}>
+            <Outlet />
+        </div>
+      </div>
     </div>
   );
 }
