@@ -1,5 +1,17 @@
 .container{
     padding: 8px 16px;
-    height: 64px;
-    border-bottom: 1px solid var(--border-color);
+    height: var(--header-height);
+    width: calc(100% - var(--nav-width));
+    border-bottom: thin solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: fixed;
+    top: 0;
+    left: auto;
+    right: 0;
+    backdrop-filter: blur(8px);
+}
+.container > div{
+    min-height: 48px;
 }

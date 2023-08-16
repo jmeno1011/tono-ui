@@ -14,6 +14,8 @@ code {
 }
 
 :root{
+  --nav-width: 300px;
+  --header-height: 64px;
   --background:white;
   --text-primary: black;
   --text-secondary: #009675;
@@ -24,4 +26,8 @@ code {
   --background: #24292e;
   --text-primary: white;
   --text-secondary: #9c9c9c;
+}
+
+*{
+	box-sizing:border-box;
 }
