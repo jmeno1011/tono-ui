@@ -22,13 +22,12 @@ export default function Layout() {
   return (
     <div className={styles.container} data-theme={theme}>
       <Nav />
-      <Header />
-      <button onClick={switchTheme}>{theme}</button>
-      <div className={styles.wrapper}>
+      <Header switchTheme={switchTheme} theme={theme}/>
+      <main className={styles.wrapper}>
         <div className={styles.page}>
-            <Outlet />
+          <Outlet />
         </div>
-      </div>
+      </main>
     </div>
   );
 }

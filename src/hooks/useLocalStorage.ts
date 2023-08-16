@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
 
-export default function useLocalStorage(key: string, initialState: string) {
+export default function useLocalStorage<T>(key='theme', initialState: T) {
     const [state, setState] = useState(
-        () => JSON.parse(window.localStorage.getItem(key) || '') || initialState
+        () => {
+            try{
+                const item = window.localStorage.getItem(key);
+                return item ? JSON.parse(item) : initialState
+            }catch(e){
+                return initialState
+            }
+        }
     );
 
     useEffect(() => {
