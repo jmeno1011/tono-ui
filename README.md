@@ -8,3 +8,6 @@
 - module.css를 이용합니다.
 - px과 rem을 섞어 사용합니다.
 - :root에 여러 색상이나 자주쓰는 css를 놔둘겁니다.
+
+##### redux 추가
+- npm i @reduxjs/toolkit react-redux redux-logger redux-persist redux-thunk @types/redux-logger @types/redux-persist

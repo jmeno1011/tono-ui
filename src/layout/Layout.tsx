@@ -8,7 +8,6 @@ export default function Layout() {
   const defaultTheme = window.matchMedia(
     "(prefers-color-scheme: dark)"
   ).matches;
-  console.log(defaultTheme);
 
   const [theme, setTheme] = useLocalStorage(
     "theme",
