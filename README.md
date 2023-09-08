@@ -10,4 +10,5 @@
 - :root에 여러 색상이나 자주쓰는 css를 놔둘겁니다.
 
 ##### redux 추가
-- npm i @reduxjs/toolkit react-redux redux-logger redux-persist redux-thunk @types/redux-logger @types/redux-persist
+- npm i @reduxjs/toolkit react-redux redux-logger redux-persist redux-thunk 
+- npm i --save-dev @types/redux-logger @types/redux-persist
