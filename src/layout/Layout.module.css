@@ -1,4 +1,5 @@
 .container{
+    min-height: 100vh;
     display: flex;
     background-color: var(--background);
     color: var(--text-primary);
@@ -6,9 +7,9 @@
 }
 
 .wrapper{
+    padding-left: var(--nav-width);
     width: 100%;
     display: flex;
-    background-color: yellowgreen;
 }
 /* @media(min-width: 1200px) {
     

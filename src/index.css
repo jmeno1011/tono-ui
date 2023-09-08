@@ -1,3 +1,4 @@
+@import "./reset.css";
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -18,7 +19,12 @@ code {
   --background:white;
   --text-primary: black;
   --text-secondary: #009675;
-  --border-color: #e5eaf2
+  --border-color: #e5eaf2;
+  --typography-h1: 1.5rem;
+  --typography-h2: 1.25rem; 
+  --typography-h3: 1.125rem;
+  --typography-h4: 1rem;
+  --typography-h5: 0.875rem;
 }
 
 [data-theme='dark']{

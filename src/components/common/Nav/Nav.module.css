@@ -17,11 +17,11 @@
     left: 0;
 }
 
-.container hr{
+.container > hr{
     margin: 0;
     flex-shrink: 0;
     border: 0;
-    border-bottom: thin solid var(--border-color);    
+    border-bottom: thin solid var(--border-color);
 }
 
 .navHeader{
@@ -38,11 +38,15 @@
     border-right: 1px solid var(--border-color);
 }
 
-.ul{
+.ul, .ulI{
     list-style: none;
     margin: 0;
     padding: 0;
     position: relative;
+}
+
+.ulI{
+    padding-left: 1rem;
 }
 
 .li{
@@ -51,7 +55,7 @@
 }
 
 .li a{
-    padding: 6px 6px 6px 2px;
+    padding: 6px;
     margin: 0;
     width: 100%;
     font-size: .875rem;
@@ -67,4 +71,17 @@
 }
 .li a:hover{
     background-color: rgb(243, 246, 249);
+}
+
+.h5{
+    padding: 0 1rem;
+    font-size: var(--typography-h5);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.hr{
+    margin: 1rem 0;
+    border: 0;
+    border-bottom: thin solid var(--border-color);
 }
