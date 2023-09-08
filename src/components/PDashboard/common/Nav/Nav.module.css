@@ -1,0 +1,31 @@
+.container{
+  min-height: calc(100vh - 60px);
+  width: 200px;
+  border-right: 1px solid silver;
+}
+
+.container > ul {
+  /* padding: 1rem 0; */
+  display: flex;
+  flex-direction: column;
+}
+
+.li > a{
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  line-height: 1.75;
+  text-transform: capitalize;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--p-color);
+  
+}
+
+.active{
+  background-color: var(--p-title-background-color);
+  border-right: 4px solid var(--p-title-color);
+}
+
+.active > a{
+  color: var(--p-title-color);
+}

@@ -1,0 +1,30 @@
+.container{
+  height: 60px;
+  padding: 0 1rem;
+  background-color: var(--p-background-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--p-color);
+  border-bottom: 1px solid silver;
+}
+
+.home{
+  font-size: var(--typography-h3);
+  font-weight: 700;
+}
+
+.home > a{
+  color: var(--p-color);
+  letter-spacing: 1px;
+}
+
+.btnArea > button{
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--p-color);
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

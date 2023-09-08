@@ -33,7 +33,7 @@ const initialState: AuthState = {
 
 interface Payload {
   div: string;
-  user: string;
+  user?: string;
 }
 
 function dev(logged: LoggedIn, d: string, action: string) {
@@ -60,7 +60,7 @@ function dev(logged: LoggedIn, d: string, action: string) {
   }
 }
 
-function user(userNames: UserNames, d: string, userName: string, action: string) {
+function user(userNames: UserNames, d: string, action: string, userName?: string) {
   switch (d) {
     case 'p':
       return ({
@@ -90,11 +90,11 @@ export const auth = createSlice({
   reducers: {
     login: (state, action: PayloadAction<Payload>) => ({
       loggedIn: dev(state.loggedIn, action.payload.div, 'login'),
-      user: user(state.user, action.payload.div, action.payload.user, 'login')
+      user: user(state.user, action.payload.div, 'login', action.payload.user)
     }),
     logout: (state, action: PayloadAction<Payload>) => ({
       loggedIn: dev(state.loggedIn, action.payload.div, 'logout'),
-      user: user(state.user, action.payload.div, action.payload.user, 'logout')
+      user: user(state.user, action.payload.div, 'logout', action.payload.user)
     })
   }
 })

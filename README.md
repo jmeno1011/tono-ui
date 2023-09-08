@@ -12,3 +12,6 @@
 ##### redux 추가
 - npm i @reduxjs/toolkit react-redux redux-logger redux-persist redux-thunk 
 - npm i --save-dev @types/redux-logger @types/redux-persist
+
+##### color 고르는곳
+- https://m2.material.io/inline-tools/color/

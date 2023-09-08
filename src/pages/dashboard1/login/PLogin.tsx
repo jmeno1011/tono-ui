@@ -20,6 +20,7 @@ export default function PLogin() {
   }
   return (
     <div className={styles.container}>
+      <h2>P - Dashboard</h2>
       <h3>Sign In</h3>
       <form className={styles.form} onSubmit={onSubmit}>
         <input type="text" id="id" value={id} onChange={onChange} />

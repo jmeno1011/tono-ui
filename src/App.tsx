@@ -6,13 +6,11 @@ import Layout from "layout/Layout";
 import { PDashboard, PLogin } from "pages/dashboard1";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
+import PLayout from "layout/dashboard1/PLayout";
 
 function App() {
   const { pathname } = useLocation();
   const { loggedIn } = useSelector((state: RootState) => state.auth);
-
-  console.log(pathname);
-  console.log(loggedIn.p);
 
   return (
     <Routes>
@@ -23,17 +21,19 @@ function App() {
       <Route
         path="/p-dashboard"
         element={
-          pathname === "/p-dashboard" && (loggedIn.p === undefined || null) ? (
+          pathname === "/p-dashboard" && loggedIn.p === false ? (
             <Navigate to="/p-login" replace />
           ) : (
-            <PDashboard />
+            <PLayout />
           )
         }
-      ></Route>
+      >
+        <Route index element={<PDashboard />} />
+      </Route>
       <Route
         path="/p-login"
         element={
-          pathname === "/p-login" && (loggedIn.p === undefined || null) ? (
+          pathname === "/p-login" && loggedIn.p === false ? (
             <PLogin />
           ) : (
             <Navigate to="/p-dashboard" replace />

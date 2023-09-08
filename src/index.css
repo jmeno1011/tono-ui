@@ -31,6 +31,12 @@ code {
   --box-shadow: 0 4px 6px rgba(0, 0, 0, .04);
   --border-radius-rem: 0.5rem;
   --border-radius-px: 5px;
+
+  /* p-dashboard */
+  --p-background-color: #f0f8ff;
+  --p-color: #6870cb;
+  --p-title-color: #907265;
+  --p-title-background-color: #fff7f0;
 }
 
 [data-theme='dark']{
