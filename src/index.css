@@ -25,6 +25,12 @@ code {
   --typography-h3: 1.125rem;
   --typography-h4: 1rem;
   --typography-h5: 0.875rem;
+
+  /* border */
+  --border: 1px solid #e5eaf2;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, .04);
+  --border-radius-rem: 0.5rem;
+  --border-radius-px: 5px;
 }
 
 [data-theme='dark']{
@@ -35,4 +41,8 @@ code {
 
 *{
 	box-sizing:border-box;
+}
+
+#root{
+  min-height: 100vh;
 }
