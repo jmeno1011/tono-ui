@@ -4,6 +4,7 @@ import Header from "components/PDashboard/common/Header/Header";
 import Nav from "components/PDashboard/common/Nav/Nav";
 import styles from "./PLayout.module.css";
 import { logout } from "redux/features/auth";
+import { Outlet } from "react-router-dom";
 
 export default function PLayout() {
   const dispath = useDispatch();
@@ -18,7 +19,9 @@ export default function PLayout() {
       <Header logout={onLogout} />
       <div className={styles.wrapper}>
         <Nav />
-        <main></main>
+        <main>
+          <Outlet />
+        </main>
       </div>
     </div>
   );

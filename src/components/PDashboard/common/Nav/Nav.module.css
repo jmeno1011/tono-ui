@@ -5,13 +5,13 @@
 }
 
 .container > ul {
-  /* padding: 1rem 0; */
   display: flex;
   flex-direction: column;
 }
 
 .li > a{
   padding: 0.5rem 1rem;
+  width: 100%;
   display: inline-block;
   line-height: 1.75;
   text-transform: capitalize;
