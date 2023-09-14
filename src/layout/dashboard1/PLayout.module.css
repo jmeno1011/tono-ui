@@ -6,3 +6,9 @@
 .wrapper{
   display: flex;
 }
+
+.wrapper > main{
+  margin: 0 auto;
+  max-width: 1234px;
+  flex-grow: 1;
+}

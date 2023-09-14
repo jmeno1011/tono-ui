@@ -1,0 +1,17 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-bottom: 1px solid silver;
+}
+
+.container > span{
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--p-color);
+}
+
+.result{
+  padding-left: 1rem;
+  font-size: 1.25rem;
+}

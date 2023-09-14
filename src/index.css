@@ -34,9 +34,11 @@ code {
 
   /* p-dashboard */
   --p-background-color: #f0f8ff;
+  --p-primary-color: #2c2689;
   --p-color: #6870cb;
   --p-title-color: #907265;
   --p-title-background-color: #fff7f0;
+  --p-container-background: #f8f8f8;
 }
 
 [data-theme='dark']{

@@ -1,0 +1,36 @@
+.container {
+  padding: 1rem;
+  min-width: 270px;
+  max-width: 300px;
+  display: flex;
+  background-color: var(--p-container-background);
+  border: var(--border);
+  border-radius: var(--border-radius-rem);
+  box-shadow: var(--box-shadow);
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoRow {
+  margin-bottom: 20px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 100px 1fr;
+}
+
+.infoRow div{
+  font-weight: 700;
+}
+
+.infoRow div:first-child {
+  font-size: 0.875rem;
+  color: var(--p-color);
+}
+
+.infoRow div:last-child {
+  font-size: 1rem;
+  color: var(--p-primary-color);
+}
