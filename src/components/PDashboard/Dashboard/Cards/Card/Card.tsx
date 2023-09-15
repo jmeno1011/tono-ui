@@ -7,11 +7,13 @@ interface CardProps {
 }
 
 export default function Card({ title, figureResult }: CardProps) {
+  console.log(figureResult);
+  
   return (
     <div className={styles.container}>
       <span>{title}</span>
       <div className={styles.result}>
-        <span>{figureResult}%</span>
+        <span>{figureResult.toFixed(2)}%</span>
       </div>
     </div>
   );

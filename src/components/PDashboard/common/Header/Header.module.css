@@ -19,6 +19,16 @@
   letter-spacing: 1px;
 }
 
+.btnArea{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btnArea > a{
+  text-decoration: underline;
+}
+
 .btnArea > button{
   background-color: transparent;
   font-size: 1rem;

@@ -13,6 +13,7 @@ export default function Header({ logout }: HeaderProps) {
         <Link to={"/p-dashboard"}>Home</Link>
       </div>
       <div className={styles.btnArea}>
+        <Link to={"/"}>Go Tono UI</Link>
         <button onClick={logout}>Sign Out</button>
       </div>
     </header>

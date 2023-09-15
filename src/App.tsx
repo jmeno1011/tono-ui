@@ -7,6 +7,7 @@ import { PDashboard, PLogin } from "pages/dashboard1";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
 import PLayout from "layout/dashboard1/PLayout";
+import PSurvey from "pages/dashboard1/Survey/PSurvey";
 
 function App() {
   const { pathname } = useLocation();
@@ -29,6 +30,7 @@ function App() {
         }
       >
         <Route index element={<PDashboard />} />
+        <Route path="p-survey" element={<PSurvey />} />
       </Route>
       <Route
         path="/p-login"

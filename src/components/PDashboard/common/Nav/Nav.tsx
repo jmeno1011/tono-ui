@@ -10,7 +10,7 @@ export default function Nav() {
     <nav className={styles.container}>
       <ul>
         <li className={cn('li', pathname==="/p-dashboard" && 'active')}><Link to={"/p-dashboard"}>dashboard</Link></li>
-        <li className={cn('li', pathname==="/p-survey" && 'active')}><Link to={"/p-survey"}>survey</Link></li>
+        <li className={cn('li', pathname==="/p-dashboard/p-survey" && 'active')}><Link to={"/p-dashboard/p-survey"}>survey</Link></li>
       </ul>
     </nav>
   )
