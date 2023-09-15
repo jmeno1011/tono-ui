@@ -1,5 +1,6 @@
 .container{
   padding: 6px 12px;
+  min-width: 150px;
   background-color: #fff;
   /* background-color: var(--p-container-color); */
   border: var(--border);
@@ -8,11 +9,16 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
 }
 
 .container > svg{
   font-size: 1.25rem;
   color: var(--p-secondary-color);
+}
+
+.container >span{
+  color: var(--p-color);
 }
 
 .inputSearch{

@@ -9,7 +9,7 @@ export default function Nav() {
   return (
     <nav className={styles.container}>
       <ul>
-        <li className={cn('li', pathname==="/p-dashboard" && 'active')}><Link to={"/p-dashboard"}>dashboard</Link></li>
+        <li className={cn('li', pathname.includes("/p-dashboard") && 'active')}><Link to={"/p-dashboard"}>dashboard</Link></li>
         <li className={cn('li', pathname==="/p-dashboard/p-survey" && 'active')}><Link to={"/p-dashboard/p-survey"}>survey</Link></li>
       </ul>
     </nav>

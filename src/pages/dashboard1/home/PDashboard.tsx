@@ -7,6 +7,8 @@ import SearchBar from "components/PDashboard/Dashboard/SearchBar/SearchBar";
 import CalendarComponent from "components/PDashboard/Dashboard/CalendarComponent/CalendarComponent";
 import { ReactComponent as Refresh } from "assets/p-dashboard/round-refresh.svg";
 import { Value } from "types/pType";
+import Tabs from "components/PDashboard/Dashboard/Tabs/Tabs";
+import { Outlet } from "react-router-dom";
 
 export default function PDashboard() {
   const [value, onChange] = useState<Value>(new Date());
@@ -26,6 +28,10 @@ export default function PDashboard() {
         <Cards />
         <CalendarComponent value={value} onChange={onChange} />
       </div>
+      <Tabs />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 }

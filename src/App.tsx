@@ -8,6 +8,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "store";
 import PLayout from "layout/dashboard1/PLayout";
 import PSurvey from "pages/dashboard1/Survey/PSurvey";
+import Trend from "pages/dashboard1/Trend/Trend";
+import State from "pages/dashboard1/State/State";
 
 function App() {
   const { pathname } = useLocation();
@@ -29,7 +31,10 @@ function App() {
           )
         }
       >
-        <Route index element={<PDashboard />} />
+        <Route path="/p-dashboard" element={<PDashboard />}>
+          <Route path="trend" element={<Trend />} />
+          <Route path="state" element={<State />} />
+        </Route>
         <Route path="p-survey" element={<PSurvey />} />
       </Route>
       <Route

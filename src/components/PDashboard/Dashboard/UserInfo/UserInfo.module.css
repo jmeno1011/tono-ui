@@ -33,5 +33,6 @@
 
 .infoRow div:last-child {
   font-size: 1rem;
-  color: var(--p-primary-color);
+  /* color: var(--p-primary-color); */
+  color: silver;
 }

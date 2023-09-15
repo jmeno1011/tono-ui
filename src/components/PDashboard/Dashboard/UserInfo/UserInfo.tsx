@@ -23,11 +23,11 @@ export default function UserInfo() {
         </div>
         <div className={styles.infoRow}>
           <div><span>나이</span></div>
-          <div><span>30</span></div>
+          <div><span>20</span></div>
         </div>
         <div className={styles.infoRow}>
           <div><span>최근 회차</span></div>
-          <div><span>4</span></div>
+          <div><span>1</span></div>
         </div>
       </div>
     </div>
