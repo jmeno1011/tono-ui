@@ -5,6 +5,7 @@
 
 .wrapper{
   display: flex;
+  background-color: var(--p-container-background);
 }
 
 .wrapper > main{

@@ -7,8 +7,6 @@ interface CardProps {
 }
 
 export default function Card({ title, figureResult }: CardProps) {
-  console.log(figureResult);
-  
   return (
     <div className={styles.container}>
       <span>{title}</span>

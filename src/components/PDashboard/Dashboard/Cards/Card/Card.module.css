@@ -1,8 +1,12 @@
 .container{
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border-bottom: 1px solid silver;
+  background-color: #fff;
+  border: var(--border);
+  border-radius: var(--border-radius-rem);
+  box-shadow: var(--box-shadow);
 }
 
 .container > span{

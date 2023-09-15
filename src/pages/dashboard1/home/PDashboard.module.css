@@ -5,6 +5,35 @@
   gap: 20px;
 }
 
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnGroup{
+  display: flex;
+  gap: 8px;
+}
+
+.refresh{
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  /* background-color: var(--p-container-color); */
+  border: var(--border);
+  border-radius: var(--border-radius-rem);
+  box-shadow: var(--box-shadow);
+}
+
+.refresh > svg{
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+  color: var(--p-secondary-color);
+}
+
 .summary{
   display: flex;
   gap: 20px;

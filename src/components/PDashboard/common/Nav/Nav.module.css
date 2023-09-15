@@ -2,6 +2,7 @@
   min-height: calc(100vh - 60px);
   width: 200px;
   border-right: 1px solid silver;
+  background-color: #fff;
 }
 
 .container > ul {
@@ -22,10 +23,10 @@
 }
 
 .active{
-  background-color: var(--p-title-background-color);
-  border-right: 4px solid var(--p-title-color);
+  background-color: var(--p-container-color);
+  border-right: 4px solid var(--p-secondary-color);
 }
 
 .active > a{
-  color: var(--p-title-color);
+  color: var(--p-secondary-color);
 }

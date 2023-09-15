@@ -1,24 +1,25 @@
 .container {
   padding: 1rem;
   min-width: 270px;
-  max-width: 300px;
+  width: var(--width-1-3-20px);
   display: flex;
-  background-color: var(--p-container-background);
+  background-color: #fff;
   border: var(--border);
   border-radius: var(--border-radius-rem);
   box-shadow: var(--box-shadow);
 }
 
 .infoWrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
 .infoRow {
-  margin-bottom: 20px;
   display: grid;
   align-items: center;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .infoRow div{
