@@ -7,11 +7,11 @@ export default function UserInfo() {
       <div className={styles.infoWrapper}>
         <div className={styles.infoRow}>
           <div><span>이름</span></div>
-          <div><span>홍길동</span></div>
+          <div><span>김토노</span></div>
         </div>
         <div className={styles.infoRow}>
           <div><span>코드</span></div>
-          <div><span>TN0001</span></div>
+          <div><span>TONO01</span></div>
         </div>
         <div className={styles.infoRow}>
           <div><span>최근 날짜</span></div>
@@ -23,7 +23,7 @@ export default function UserInfo() {
         </div>
         <div className={styles.infoRow}>
           <div><span>나이</span></div>
-          <div><span>20</span></div>
+          <div><span>30</span></div>
         </div>
         <div className={styles.infoRow}>
           <div><span>최근 회차</span></div>

@@ -8,9 +8,10 @@ import CalendarComponent from "components/PDashboard/Dashboard/CalendarComponent
 import { ReactComponent as Refresh } from "assets/p-dashboard/round-refresh.svg";
 import { Value } from "types/pType";
 import Tabs from "components/PDashboard/Dashboard/Tabs/Tabs";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 export default function PDashboard() {
+  const {pathname} = useLocation();
   const [value, onChange] = useState<Value>(new Date());
   return (
     <div className={styles.container}>
@@ -29,8 +30,13 @@ export default function PDashboard() {
         <CalendarComponent value={value} onChange={onChange} />
       </div>
       <Tabs />
-      <main>
+      <main className={styles.main}>
         <Outlet />
+        {
+          pathname === "/p-dashboard" && <div className={styles.overview}>
+
+          </div>
+        }
       </main>
     </div>
   );

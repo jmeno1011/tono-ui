@@ -2,16 +2,15 @@
   border-bottom: 1px solid silver;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin-bottom: 0.5rem;
 }
 
 .container>a {
   padding: 0.5rem 1rem;
   cursor: pointer;
+  color: var(--p-color);
 }
 
 .container>a>span {
-  color: var(--p-color);
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.75;
@@ -20,6 +19,9 @@
 
 .tabClass {
   font-weight: 700;
-  color: var(--p-secondary-color);
   border-bottom: 4px solid var(--p-secondary-color);
+}
+
+.tabClass >span{
+  color: var(--p-secondary-color);
 }
