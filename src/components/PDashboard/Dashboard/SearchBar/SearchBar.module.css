@@ -23,6 +23,7 @@
 
 .container >span{
   color: var(--p-color);
+  user-select: none;
 }
 
 .inputSearch{

@@ -2,11 +2,14 @@ import React from "react";
 import { ReactComponent as Search } from "assets/p-dashboard/search-bold.svg";
 import styles from "./SearchBar.module.css";
 
-export default function SearchBar() {
+interface SearchBarProps{
+  onOpenModal: ()=>void;
+}
+
+export default function SearchBar({onOpenModal}:SearchBarProps) {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={onOpenModal}>
       <Search />
-      {/* <input className={styles.inputSearch} type="text" placeholder="Search"/> */}
       <span>Search</span>
     </div>
   );
