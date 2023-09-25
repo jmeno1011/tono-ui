@@ -120,6 +120,7 @@ export type Database = {
   }
 }
 
+// TODO: generator 해보기
 // Database generator 아래 부분
 
 // export type Tables<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Row'];
