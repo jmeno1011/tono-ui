@@ -6,43 +6,34 @@ import Cards from "components/PDashboard/Dashboard/Cards/Cards";
 import SearchBar from "components/PDashboard/Dashboard/SearchBar/SearchBar";
 import CalendarComponent from "components/PDashboard/Dashboard/CalendarComponent/CalendarComponent";
 import { ReactComponent as Refresh } from "assets/p-dashboard/round-refresh.svg";
-import { Value } from "types/pType";
+import { UserInfo as UserInfoType, Value } from "types/pType";
 import Tabs from "components/PDashboard/Dashboard/Tabs/Tabs";
 import { Outlet, useLocation } from "react-router-dom";
 import ModalPortal from "components/PDashboard/common/ModalPortal/ModalPortal";
 import SearchModal from "components/PDashboard/common/ModalPortal/SearchModal";
-import { createClient } from '@supabase/supabase-js'
-import { Database } from "types/database.types";
-
-const supabaseUrl = process.env.REACT_APP_SUPABASE_URL || "";
-const supabaseKey = process.env.REACT_APP_SUPABASE_KEY || "";
-
-const supabase = createClient<any>(supabaseUrl, supabaseKey);
+import { db } from "lib/api";
 
 export default function PDashboard() {
   const {pathname} = useLocation();
+  const [userList, setUserList] = useState<UserInfoType[]>([]);
   const [value, onChange] = useState<Value>(new Date());
   const [openModal, setOpenModal] = useState(false);
-  const [test, setTest] = useState<any>();
   const onOpenModal = ()=>{
     setOpenModal(true)
   }
   const onCloseModal = ()=>{
     setOpenModal(false);
   }
-  // console.log("modal:", openModal);
-  const dataFetch =async () => {
-    console.log(supabase);
-    
-    let { data, error } = await supabase.from('P_USER').select();
-    console.log(data);
-    console.log(error);
-    // setTest(data);
-  }
 
   useEffect(()=>{
-    dataFetch();
+    fetchUserList();
   },[])
+
+  const fetchUserList = async ()=>{
+    let {data, error} = await db.getPUser().select("*").order("id", {ascending: false});
+    if(error) console.log("error: ", error);
+    else setUserList(data as UserInfoType[]);
+  }
   
   return (
     <div className={styles.container}>
@@ -73,7 +64,7 @@ export default function PDashboard() {
       {
         openModal && (
           <ModalPortal>
-            <SearchModal onCloseModal={onCloseModal}/>
+            <SearchModal onCloseModal={onCloseModal} userList={userList}/>
           </ModalPortal>
         )
       }
