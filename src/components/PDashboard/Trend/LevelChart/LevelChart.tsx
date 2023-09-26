@@ -12,6 +12,7 @@ import {
 import { Line } from 'react-chartjs-2';
 import ChartTitle from '../ChartTitle/ChartTitle';
 import { Datasets } from 'types/pType';
+import NoData from 'components/PDashboard/common/NoData/NoData';
 
 ChartJS.register(
   CategoryScale,
@@ -33,7 +34,7 @@ export default function LevelChart({levelData}:LevelChartProps) {
       <header>
         <ChartTitle>Level</ChartTitle>
       </header>
-      <div className="trend__chart__wrapper">{levelData && <Line options={options} data={levelData} />}</div>
+      <div className="trend__chart__wrapper">{levelData ? <Line options={options} data={levelData} /> : <NoData />}</div>
     </div>
   )
 }

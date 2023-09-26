@@ -11,6 +11,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { Datasets } from "types/pType";
+import NoData from "components/PDashboard/common/NoData/NoData";
 
 ChartJS.register(
   CategoryScale,
@@ -31,7 +32,7 @@ export default function TotalChart({ totalData }: TotalChartProps) {
       <header>
         <ChartTitle>Total</ChartTitle>
       </header>
-      <div className="trend__chart__wrapper">{totalData && <Bar options={options} data={totalData} />}</div>
+      <div className="trend__chart__wrapper">{totalData ? <Bar options={options} data={totalData} />:<NoData />}</div>
     </div>
   );
 }

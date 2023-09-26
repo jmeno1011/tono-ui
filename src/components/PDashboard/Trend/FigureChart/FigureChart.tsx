@@ -13,6 +13,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { Datasets } from 'types/pType';
+import NoData from 'components/PDashboard/common/NoData/NoData';
 
 ChartJS.register(
   CategoryScale,
@@ -35,7 +36,7 @@ export default function FigureChart({figureData}:FigureChartProps) {
       <header>
         <ChartTitle>Figure</ChartTitle>
       </header>
-      <div className="trend__chart__wrapper">{figureData && <Line options={options} data={figureData} />}</div>
+      <div className="trend__chart__wrapper">{figureData ? <Line options={options} data={figureData} />:<NoData />}</div>
     </div>
   )
 }
