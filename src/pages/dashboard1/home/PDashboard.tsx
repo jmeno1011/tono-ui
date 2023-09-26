@@ -13,7 +13,7 @@ import ModalPortal from "components/PDashboard/common/ModalPortal/ModalPortal";
 import SearchModal from "components/PDashboard/common/ModalPortal/SearchModal";
 import { db } from "lib/api";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserInfo } from "redux/features/pDashboard";
+import { getUserInfo, userCode, user as userAction } from "redux/features/pDashboard";
 import { RootState } from "store";
 
 export default function PDashboard() {
@@ -29,10 +29,10 @@ export default function PDashboard() {
     setOpenModal(false);
   };
 
-  useEffect(() => {
-    fetchUserList();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const onClickRefresh = ()=>{
+    dispatch(userAction(null));
+    dispatch(userCode(""));
+  }
 
   const fetchUserList = async () => {
     let { data, error } = await db
@@ -46,6 +46,13 @@ export default function PDashboard() {
     }
   };
 
+  useEffect(() => {
+    fetchUserList();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -53,7 +60,8 @@ export default function PDashboard() {
         <div className={styles.btnGroup}>
           <SearchBar onOpenModal={onOpenModal} />
           <div className={styles.refresh}>
-            <Refresh />
+            <Refresh onClick={onClickRefresh}/>
+            <span>clear</span>
           </div>
         </div>
       </header>

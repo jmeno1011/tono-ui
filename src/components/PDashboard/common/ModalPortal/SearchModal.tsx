@@ -12,7 +12,7 @@ import styles from "./SearchModal.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store";
 import { UserInfo } from "types/pType";
-import { user } from "redux/features/pDashboard";
+import { user, userCode } from "redux/features/pDashboard";
 
 interface SearchModalProps {
   onCloseModal: () => void;
@@ -35,6 +35,7 @@ export default function SearchModal({
 
   const onClickUser = (userinfo: UserInfo) => {
     dispatch(user(userinfo));
+    dispatch(userCode(userinfo.CODE));
     setOpenModal(false);
   };
 

@@ -18,18 +18,27 @@
 .refresh{
   padding: 6px;
   display: flex;
-  justify-content: center;
   align-items: center;
   background-color: #fff;
   border: var(--border);
   border-radius: var(--border-radius-rem);
   box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+.refresh:hover{
+  background-color: var(--p-container-color);
 }
 
 .refresh > svg{
   width: 1.25rem;
   height: 1.25rem;
-  cursor: pointer;
+  color: var(--p-secondary-color);
+}
+
+.refresh > span{
+  padding: 0 0.5rem;
+  font-size: 1rem;
   color: var(--p-secondary-color);
 }
 
