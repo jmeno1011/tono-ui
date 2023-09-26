@@ -10,4 +10,6 @@ export interface UserInfo {
   EMAIL: string;
   AGE: number;
   SEX: string;
-}
+};
+
+// export interface 

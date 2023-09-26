@@ -12,34 +12,41 @@ import { Outlet, useLocation } from "react-router-dom";
 import ModalPortal from "components/PDashboard/common/ModalPortal/ModalPortal";
 import SearchModal from "components/PDashboard/common/ModalPortal/SearchModal";
 import { db } from "lib/api";
+import { useDispatch } from "react-redux";
+import { getUserInfo } from "redux/features/pDashboard";
 
 export default function PDashboard() {
-  const {pathname} = useLocation();
-  const [userList, setUserList] = useState<UserInfoType[]>([]);
+  const { pathname } = useLocation();
+  const dispatch = useDispatch();
   const [value, onChange] = useState<Value>(new Date());
   const [openModal, setOpenModal] = useState(false);
-  const onOpenModal = ()=>{
-    setOpenModal(true)
-  }
-  const onCloseModal = ()=>{
+  const onOpenModal = () => {
+    setOpenModal(true);
+  };
+  const onCloseModal = () => {
     setOpenModal(false);
-  }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchUserList();
-  },[])
+  }, []);
 
-  const fetchUserList = async ()=>{
-    let {data, error} = await db.getPUser().select("*").order("id", {ascending: false});
-    if(error) console.log("error: ", error);
-    else setUserList(data as UserInfoType[]);
-  }
-  
+  const fetchUserList = async () => {
+    let { data, error } = await db
+      .getUserInfo()
+      .select("*")
+      .order("id", { ascending: true });
+    if (error) {
+      console.log("error: ", error);
+    } else {
+      dispatch(getUserInfo(data as UserInfoType[]))
+    }
+  };
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
         <Title>Dashboard</Title>
-        {/* <div>{test}</div> */}
         <div className={styles.btnGroup}>
           <SearchBar onOpenModal={onOpenModal} />
           <div className={styles.refresh}>
@@ -55,19 +62,13 @@ export default function PDashboard() {
       <Tabs />
       <main className={styles.main}>
         <Outlet />
-        {
-          pathname === "/p-dashboard" && <div className={styles.overview}>
-
-          </div>
-        }
+        {pathname === "/p-dashboard" && <div className={styles.overview}></div>}
       </main>
-      {
-        openModal && (
-          <ModalPortal>
-            <SearchModal onCloseModal={onCloseModal} userList={userList}/>
-          </ModalPortal>
-        )
-      }
+      {openModal && (
+        <ModalPortal>
+          <SearchModal onCloseModal={onCloseModal} setOpenModal={setOpenModal} />
+        </ModalPortal>
+      )}
     </div>
   );
 }
