@@ -13,7 +13,7 @@ import ModalPortal from "components/PDashboard/common/ModalPortal/ModalPortal";
 import SearchModal from "components/PDashboard/common/ModalPortal/SearchModal";
 import { db } from "lib/api";
 import { useDispatch, useSelector } from "react-redux";
-import { userCodeAction, userAction, userListAction } from "redux/features/pDashboard";
+import { userCodeAction, userAction, userListAction, surveyResultAction } from "redux/features/pDashboard";
 import { RootState } from "store";
 
 export default function PDashboard() {
@@ -32,6 +32,7 @@ export default function PDashboard() {
   const onClickRefresh = ()=>{
     dispatch(userCodeAction(""));
     dispatch(userAction(null));
+    dispatch(surveyResultAction([]));
   }
 
   const fetchUserList = async () => {

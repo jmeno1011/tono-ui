@@ -66,3 +66,22 @@ code {
 .h-comp{
   display: flex;
 }
+
+.trend__chart__container{
+  padding: 0.5rem;
+  background-color: #fff;
+  border: var(--border);
+  border-radius: var(--border-radius-rem);
+  box-shadow: var(--box-shadow);
+}
+
+.trend__chart__container h3{
+  font-size: var(--typography-h3);
+  font-weight: 700;
+  /* line-height: 1.75; */
+  margin-bottom: 1rem;
+}
+
+.trend__chart__wrapper{
+  height: 200px;
+}

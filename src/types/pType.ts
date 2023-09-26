@@ -46,3 +46,22 @@ export interface PSurveyResult {
   FIGURE3: number;
   PROCESS_STATE: string;
 }
+
+export interface Figures{
+  figure1 : number | string;
+  figure2 : number | string;
+  figure3 : number | string;
+}
+
+export interface Datasets {
+  labels: (number | string)[];
+  datasets: dataset[];
+}
+
+interface dataset {
+  fill?: boolean;
+  label: string;
+  data: number[];
+  borderColor?: string;
+  backgroundColor: string;
+}

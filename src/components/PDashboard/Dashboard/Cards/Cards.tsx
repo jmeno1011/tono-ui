@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Cards.module.css";
 import Card from "./Card/Card";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
-import { PSurveyResult } from "types/pType";
+import { Figures, PSurveyResult } from "types/pType";
 
 export default function Cards() {
   const { surveyResult } = useSelector((state: RootState) => state.pDash);
-  const figures = getFigureDiffer(surveyResult);
-  console.log(figures);
-  
+  const [figures, setFigures] = useState<Figures>({
+    figure1: 0,
+    figure2: 0,
+    figure3: 0,
+  });
+  useEffect(() => {
+    setFigures(getFigureDiffer(surveyResult));
+  }, []);
+  // const figures = getFigureDiffer(surveyResult);
   return (
     <div className={styles.container}>
       <Card title={"Figure1"} figureResult={figures.figure1} />
