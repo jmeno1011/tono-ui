@@ -12,12 +12,14 @@ import { Outlet, useLocation } from "react-router-dom";
 import ModalPortal from "components/PDashboard/common/ModalPortal/ModalPortal";
 import SearchModal from "components/PDashboard/common/ModalPortal/SearchModal";
 import { db } from "lib/api";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getUserInfo } from "redux/features/pDashboard";
+import { RootState } from "store";
 
 export default function PDashboard() {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
+  const { user } = useSelector((state: RootState) => state.pDash);
   const [value, onChange] = useState<Value>(new Date());
   const [openModal, setOpenModal] = useState(false);
   const onOpenModal = () => {
@@ -29,6 +31,7 @@ export default function PDashboard() {
 
   useEffect(() => {
     fetchUserList();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchUserList = async () => {
@@ -39,7 +42,7 @@ export default function PDashboard() {
     if (error) {
       console.log("error: ", error);
     } else {
-      dispatch(getUserInfo(data as UserInfoType[]))
+      dispatch(getUserInfo(data as UserInfoType[]));
     }
   };
 
@@ -55,7 +58,7 @@ export default function PDashboard() {
         </div>
       </header>
       <div className={styles.summary}>
-        <UserInfo />
+        <UserInfo user={user} />
         <Cards />
         <CalendarComponent value={value} onChange={onChange} />
       </div>
@@ -66,7 +69,10 @@ export default function PDashboard() {
       </main>
       {openModal && (
         <ModalPortal>
-          <SearchModal onCloseModal={onCloseModal} setOpenModal={setOpenModal} />
+          <SearchModal
+            onCloseModal={onCloseModal}
+            setOpenModal={setOpenModal}
+          />
         </ModalPortal>
       )}
     </div>
