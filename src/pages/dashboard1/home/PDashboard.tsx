@@ -6,14 +6,14 @@ import Cards from "components/PDashboard/Dashboard/Cards/Cards";
 import SearchBar from "components/PDashboard/Dashboard/SearchBar/SearchBar";
 import CalendarComponent from "components/PDashboard/Dashboard/CalendarComponent/CalendarComponent";
 import { ReactComponent as Refresh } from "assets/p-dashboard/round-refresh.svg";
-import { UserInfo as UserInfoType, Value } from "types/pType";
+import { PUserInfo , Value } from "types/pType";
 import Tabs from "components/PDashboard/Dashboard/Tabs/Tabs";
 import { Outlet, useLocation } from "react-router-dom";
 import ModalPortal from "components/PDashboard/common/ModalPortal/ModalPortal";
 import SearchModal from "components/PDashboard/common/ModalPortal/SearchModal";
 import { db } from "lib/api";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserInfo, userCode, user as userAction } from "redux/features/pDashboard";
+import { userCodeAction, userAction, userListAction } from "redux/features/pDashboard";
 import { RootState } from "store";
 
 export default function PDashboard() {
@@ -30,19 +30,19 @@ export default function PDashboard() {
   };
 
   const onClickRefresh = ()=>{
+    dispatch(userCodeAction(""));
     dispatch(userAction(null));
-    dispatch(userCode(""));
   }
 
   const fetchUserList = async () => {
     let { data, error } = await db
-      .getUserInfo()
+      .selectUserInfo()
       .select("*")
       .order("id", { ascending: true });
     if (error) {
       console.log("error: ", error);
     } else {
-      dispatch(getUserInfo(data as UserInfoType[]));
+      dispatch(userListAction(data as PUserInfo[]));
     }
   };
 

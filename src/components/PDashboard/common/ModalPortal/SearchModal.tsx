@@ -11,8 +11,8 @@ import { ReactComponent as Search } from "assets/p-dashboard/search-bold.svg";
 import styles from "./SearchModal.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store";
-import { UserInfo } from "types/pType";
-import { getUserInfo, user, userCode } from "redux/features/pDashboard";
+import { PUserInfo } from "types/pType";
+import { userCodeAction, userAction, surveyResultAction } from "redux/features/pDashboard";
 import { db } from "lib/api";
 
 interface SearchModalProps {
@@ -24,7 +24,7 @@ export default function SearchModal({
   onCloseModal,
   setOpenModal,
 }: SearchModalProps) {
-  const { userInfo } = useSelector((state: RootState) => state.pDash);
+  const { userList } = useSelector((state: RootState) => state.pDash);
   const dispatch = useDispatch();
 
   const [name, setName] = useState<string>("");
@@ -34,18 +34,18 @@ export default function SearchModal({
     setName(e.target.value);
   }, []);
 
-  const onClickUser = async (userinfo: UserInfo) => {
-    dispatch(user(userinfo));
-    dispatch(userCode(userinfo.CODE));
+  const onClickUser = async (userinfo: PUserInfo) => {
+    dispatch(userCodeAction(userinfo.CODE));
+    dispatch(userAction(userinfo));
     setOpenModal(false);
     let { data, error } = await db
-      .getPUser()
+      .selectSurveyResult()
       .select("*")
       .eq("CODE", userinfo.CODE);
     if (error) {
       console.log("error: ", error);
     } else {
-      dispatch(getUserInfo(data));
+      dispatch(surveyResultAction(data));
     }
   };
 
@@ -86,7 +86,7 @@ export default function SearchModal({
           <span>이름</span>
         </div>
         <div className={styles.nameContainer}>
-          {userInfo
+          {userList
             .filter(
               (user) =>
                 user.NAME.includes(name) ||

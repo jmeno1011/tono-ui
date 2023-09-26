@@ -1,39 +1,44 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { UserInfo as UserInfoType } from "types/pType";
+import { PSurveyResult, PUserInfo } from "types/pType";
 
 interface pDashState {
   userCode: string;
-  user: UserInfoType | null;
-  userInfo: UserInfoType[];
+  user: PUserInfo | null;
+  userList: PUserInfo[];
+  surveyResult: PSurveyResult[];
 }
 
 const initialState: pDashState = {
   userCode: '',
   user: null,
-  userInfo: [],
-  
+  userList: [],
+  surveyResult: []
 };
 
 export const pDash = createSlice({
   name: 'pDash',
   initialState,
   reducers: {
-    getUserInfo: (state, action) => ({
+    userCodeAction: (state, action) =>({
       ...state,
-      userInfo: action.payload
+      userCode : action.payload
     }),
-    user: (state, action) =>({
+    userAction: (state, action) =>({
       ...state,
       user: {
         ...action.payload
       }
     }),
-    userCode: (state, action) =>({
+    userListAction: (state, action)=>({
       ...state,
-      userCode : action.payload
-    })
+      userList: action.payload
+    }),
+    surveyResultAction: (state, action) => ({
+      ...state,
+      surveyResult: action.payload
+    }),
   }
 });
 
-export const { getUserInfo, user, userCode } = pDash.actions;
+export const { userCodeAction, userAction, userListAction, surveyResultAction } = pDash.actions;
 export default pDash.reducer;

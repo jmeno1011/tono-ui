@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./UserInfo.module.css";
-import { UserInfo as UserInfoType } from "types/pType";
+import { PUserInfo } from "types/pType";
 
 interface UserInfoProps {
-  user: UserInfoType | null;
+  user: PUserInfo | null;
 }
 
 export default function UserInfo({ user }: UserInfoProps) {

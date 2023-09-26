@@ -7,6 +7,6 @@ export const supabase = createClient(
 );
 
 export const db = {
-  getUserInfo: ()=>supabase.from('USER_INFO'),
-  getPUser: ()=> supabase.from('P_USER'),
+  selectUserInfo: ()=> supabase.from('P_USER_INFO'),
+  selectSurveyResult: ()=>supabase.from('P_SURVEY_RESULT'),
 }
