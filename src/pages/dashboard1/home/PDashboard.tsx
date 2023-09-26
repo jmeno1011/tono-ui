@@ -60,8 +60,8 @@ export default function PDashboard() {
         <Title>Dashboard</Title>
         <div className={styles.btnGroup}>
           <SearchBar onOpenModal={onOpenModal} />
-          <div className={styles.refresh}>
-            <Refresh onClick={onClickRefresh}/>
+          <div className={styles.refresh} onClick={onClickRefresh}>
+            <Refresh />
             <span>clear</span>
           </div>
         </div>
