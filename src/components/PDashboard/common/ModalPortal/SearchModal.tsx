@@ -12,7 +12,8 @@ import styles from "./SearchModal.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store";
 import { UserInfo } from "types/pType";
-import { user, userCode } from "redux/features/pDashboard";
+import { getUserInfo, user, userCode } from "redux/features/pDashboard";
+import { db } from "lib/api";
 
 interface SearchModalProps {
   onCloseModal: () => void;
@@ -33,10 +34,19 @@ export default function SearchModal({
     setName(e.target.value);
   }, []);
 
-  const onClickUser = (userinfo: UserInfo) => {
+  const onClickUser = async (userinfo: UserInfo) => {
     dispatch(user(userinfo));
     dispatch(userCode(userinfo.CODE));
     setOpenModal(false);
+    let { data, error } = await db
+      .getPUser()
+      .select("*")
+      .eq("CODE", userinfo.CODE);
+    if (error) {
+      console.log("error: ", error);
+    } else {
+      dispatch(getUserInfo(data));
+    }
   };
 
   const handleClickOutside = (e: MouseEvent) => {
@@ -56,6 +66,7 @@ export default function SearchModal({
     return () => {
       window.removeEventListener("click", handleClickOutside);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -85,7 +96,7 @@ export default function SearchModal({
               <div
                 key={`${user.CODE}_${user.NAME}`}
                 className={styles.nameArea}
-                onClick={()=>onClickUser(user)}
+                onClick={() => onClickUser(user)}
               >
                 <span>{user.CODE}</span>
                 <span>{user.NAME}</span>

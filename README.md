@@ -15,3 +15,8 @@
 
 ##### color 고르는곳
 - https://m2.material.io/inline-tools/color/
+
+#### p-dashboard redux
+- user : user의 info가 있음
+- userCode : user의 CODE
+- surveyResult : user의 survey 결과가 있음
