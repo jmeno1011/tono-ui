@@ -12,10 +12,11 @@ export default function Cards() {
     figure2: 0,
     figure3: 0,
   });
+  
   useEffect(() => {
     setFigures(getFigureDiffer(surveyResult));
-  }, []);
-  // const figures = getFigureDiffer(surveyResult);
+  }, [surveyResult]);
+
   return (
     <div className={styles.container}>
       <Card title={"Figure1"} figureResult={figures.figure1} />

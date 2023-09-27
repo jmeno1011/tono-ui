@@ -8,11 +8,12 @@ import LevelChart from "components/PDashboard/Trend/LevelChart/LevelChart";
 import FigureChart from "components/PDashboard/Trend/FigureChart/FigureChart";
 
 export default function Trend() {
-  const { userCode, surveyResult } = useSelector((state: RootState) => state.pDash);
-  // const [labels, setLabels] = useState<number[]>([]);
+  const { surveyResult } = useSelector((state: RootState) => state.pDash);
+  
   const [totalData, setTotalData] = useState<Datasets>();
   const [levelData, setLevelData] = useState<Datasets>();
   const [figureData, setFigureData] = useState<Datasets>();
+  
   useEffect(()=>{
     const labels = surveyResult.map(survey => survey.SEQ);
     setTotalData({

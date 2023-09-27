@@ -19,4 +19,5 @@
 #### p-dashboard redux
 - userCode : user의 CODE
 - user : user의 info가 있음
+- userList : user의 info 목록들
 - surveyResult : user의 survey 결과가 있음
