@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Header.module.css";
 
 interface HeaderProps {
-    switchTheme: () => void;
+  switchTheme: () => void;
   theme: string;
 }
 

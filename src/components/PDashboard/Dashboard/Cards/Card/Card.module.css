@@ -21,3 +21,16 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.normal{
+  color: var(--p-primary-color);
+}
+
+.up{
+ color: #d32f2f; 
+}
+
+.down{
+  color: #1976d2;
+}
+
