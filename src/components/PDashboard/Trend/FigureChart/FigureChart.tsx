@@ -1,5 +1,5 @@
-import React from 'react'
-import ChartTitle from '../ChartTitle/ChartTitle';
+import React from "react";
+import ChartTitle from "../ChartTitle/ChartTitle";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,10 +10,10 @@ import {
   Tooltip,
   Filler,
   Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
-import { Datasets } from 'types/pType';
-import NoData from 'components/PDashboard/common/NoData/NoData';
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+import { Datasets } from "types/pType";
+import NoData from "components/PDashboard/common/NoData/NoData";
 
 ChartJS.register(
   CategoryScale,
@@ -26,19 +26,25 @@ ChartJS.register(
   Legend
 );
 
-interface FigureChartProps{
-  figureData?: Datasets;
+interface FigureChartProps {
+  figureData: Datasets;
 }
 
-export default function FigureChart({figureData}:FigureChartProps) {
+export default function FigureChart({ figureData }: FigureChartProps) {
   return (
     <div className="trend__chart__container">
       <header>
         <ChartTitle>Figure</ChartTitle>
       </header>
-      <div className="trend__chart__wrapper">{figureData ? <Line options={options} data={figureData} />:<NoData />}</div>
+      <div className="trend__chart__wrapper">
+        {figureData.labels.length > 0 ? (
+          <Line options={options} data={figureData} />
+        ) : (
+          <NoData />
+        )}
+      </div>
     </div>
-  )
+  );
 }
 
 const options = {
@@ -53,6 +59,6 @@ const options = {
   },
   aspectRatio: 5.5,
   animation: {
-    duration: 0
-  }
+    duration: 0,
+  },
 };

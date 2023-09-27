@@ -23,7 +23,7 @@ ChartJS.register(
 );
 
 interface TotalChartProps {
-  totalData?: Datasets;
+  totalData: Datasets;
 }
 
 export default function TotalChart({ totalData }: TotalChartProps) {
@@ -32,7 +32,13 @@ export default function TotalChart({ totalData }: TotalChartProps) {
       <header>
         <ChartTitle>Total</ChartTitle>
       </header>
-      <div className="trend__chart__wrapper">{totalData ? <Bar options={options} data={totalData} />:<NoData />}</div>
+      <div className="trend__chart__wrapper">
+        {totalData.labels.length > 0 ? (
+          <Bar options={options} data={totalData} />
+        ) : (
+          <NoData />
+        )}
+      </div>
     </div>
   );
 }
@@ -49,6 +55,6 @@ const options = {
   },
   aspectRatio: 5.5,
   animation: {
-    duration: 0
-  }
+    duration: 0,
+  },
 };
