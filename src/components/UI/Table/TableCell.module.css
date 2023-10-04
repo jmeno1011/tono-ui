@@ -1,0 +1,7 @@
+.td{
+  padding: 1rem;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: thin solid silver;
+  text-align: left;
+}

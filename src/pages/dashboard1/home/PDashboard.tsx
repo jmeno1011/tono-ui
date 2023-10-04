@@ -15,6 +15,7 @@ import { db } from "lib/api";
 import { useDispatch, useSelector } from "react-redux";
 import { userCodeAction, userAction, userListAction, surveyResultAction } from "redux/features/pDashboard";
 import { RootState } from "store";
+import OverView from "components/PDashboard/Dashboard/OverView/OverView";
 
 export default function PDashboard() {
   const { pathname } = useLocation();
@@ -52,8 +53,6 @@ export default function PDashboard() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  
-
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -74,7 +73,9 @@ export default function PDashboard() {
       <Tabs />
       <main className={styles.main}>
         <Outlet />
-        {pathname === "/p-dashboard" && <div className={styles.overview}></div>}
+        {pathname === "/p-dashboard" && <div className={styles.overview}>
+          <OverView />
+          </div>}
       </main>
       {openModal && (
         <ModalPortal>
