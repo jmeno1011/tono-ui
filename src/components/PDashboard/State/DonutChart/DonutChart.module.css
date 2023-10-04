@@ -1,13 +1,12 @@
-.row{
-  display: flex;
-  gap: 20px;
-}
-
-.filter{
-  width: 100%;
+.container{
   padding: 0.5rem;
+  height: 250px;
+  width: 350px;
   background-color: #fff;
   border: var(--border);
   border-radius: var(--border-radius-rem);
   box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

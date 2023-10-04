@@ -1,17 +1,22 @@
 .container{
-  height: 200px;
+  height: 250px;
   width: 300px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   position: relative;
+}
+
+.container > header {
+  width: 100%;
+  text-align: start;
 }
 
 .container >div{
   position: absolute;
   width: 100%;
   bottom: 32px;
-  display: flex;
-  justify-content: center;
+  text-align: center;
   font-size: 1.5rem;
 }

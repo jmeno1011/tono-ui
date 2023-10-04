@@ -5,6 +5,7 @@ import { Doughnut } from "react-chartjs-2";
 import styles from "./GaugeChart.module.css";
 import classNames from "classnames/bind";
 import { Anchor, Font } from "chartjs-plugin-datalabels/types/options";
+import ChartTitle from "components/PDashboard/Trend/ChartTitle/ChartTitle";
 const cn = classNames.bind(styles);
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
@@ -25,10 +26,9 @@ const options = {
       },
       offset:()=> -10,
       align: (context: any) => {
-        console.log(context.dataIndex);
         const len = context.dataset.data.length;
         const degree = 180 / len;
-        return degree * context.dataIndex - degree + 10;
+        return degree * context.dataIndex - degree;
       },
       anchor: () => "end" as Anchor,
       font: () => {
@@ -53,6 +53,7 @@ interface GaugeChartProps {
     labels: string[];
     datasets: datasets[];
   };
+  title: string;
 }
 
 type datasets = {
@@ -63,9 +64,12 @@ type datasets = {
   borderWidth: number;
 };
 
-export default function GaugeChart({ score, data }: GaugeChartProps) {
+export default function GaugeChart({ score, data, title }: GaugeChartProps) {
   return (
     <div className={cn("common__container", "container")}>
+      <header>
+        <ChartTitle>{title}</ChartTitle>
+      </header>
       <Doughnut data={data} options={options} />
       <div>
         <span>{score}</span>
