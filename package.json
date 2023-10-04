@@ -57,6 +57,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/react-highlight": "^0.12.5",
     "@types/redux-logger": "^3.0.9",
-    "@types/redux-persist": "^4.3.1"
+    "@types/redux-persist": "^4.3.1",
+    "chartjs-plugin-datalabels": "^2.2.0"
   }
 }
