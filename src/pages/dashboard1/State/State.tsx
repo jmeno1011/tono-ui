@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "./State.module.css";
-import GaugeChart from "components/PDashboard/State/GaugeChart/GaugeChart";
 import { RootState } from "store";
 import { useSelector } from "react-redux";
+import GaugeChart from "components/PDashboard/State/GaugeChart/GaugeChart";
 import DonutChart from "components/PDashboard/State/DonutChart/DonutChart";
+import StackChart from "components/PDashboard/State/StackChart/StackChart";
+import HorizontalBarChart from "components/PDashboard/State/HorizontalBarChart/HorizontalBarChart";
 
 export default function State() {
   const { surveyResult } = useSelector((state: RootState) => state.pDash);
@@ -15,10 +17,11 @@ export default function State() {
         <GaugeChart score={"15점"} data={totalData} title={"Total"} />
         <GaugeChart score={"Lv 2"} data={levelData} title={"Level"} />
         <DonutChart />
-        <div className={styles.filter}>filter</div>
       </div>
+      <div className={styles.filter}>filter</div>
       <div className={styles.row}>
-        
+        <StackChart />
+        <HorizontalBarChart />
       </div>
     </div>
   );
