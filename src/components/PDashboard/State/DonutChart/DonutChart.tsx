@@ -2,7 +2,7 @@ import React from 'react'
 import { Doughnut } from 'react-chartjs-2'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, LayoutPosition } from "chart.js";
 import styles from "./DonutChart.module.css";
-import ChartTitle from 'components/PDashboard/Trend/ChartTitle/ChartTitle';
+import ChartTitle from 'components/PDashboard/common/ChartTitle/ChartTitle';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

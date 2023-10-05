@@ -10,10 +10,10 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import ChartTitle from "../ChartTitle/ChartTitle";
-import NoData from "components/PDashboard/common/NoData/NoData";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
+import { trendOption } from "lib/chartOptions";
+import { ChartTitle, NoData } from "components/PDashboard/common";
 
 ChartJS.register(
   CategoryScale,
@@ -27,7 +27,7 @@ ChartJS.register(
 
 export default function LevelChart() {
   const { surveyResult } = useSelector((state: RootState) => state.pDash);
-  
+
   return (
     <div className="trend__chart__container">
       <header>
@@ -35,17 +35,20 @@ export default function LevelChart() {
       </header>
       <div className="trend__chart__wrapper">
         {surveyResult.length > 0 ? (
-          <Line options={options} data={{
-            labels: surveyResult.map((survey) => survey.SEQ),
-            datasets: [
-              {
-                label: "level",
-                data: surveyResult.map((survey) => survey.LEVEL),
-                borderColor: "rgb(103, 80, 164)",
-                backgroundColor: "rgb(103, 80, 164)",
-              },
-            ],
-          }} />
+          <Line
+            options={trendOption}
+            data={{
+              labels: surveyResult.map((survey) => survey.SEQ),
+              datasets: [
+                {
+                  label: "level",
+                  data: surveyResult.map((survey) => survey.LEVEL),
+                  borderColor: "rgb(103, 80, 164)",
+                  backgroundColor: "rgb(103, 80, 164)",
+                },
+              ],
+            }}
+          />
         ) : (
           <NoData />
         )}
@@ -53,19 +56,3 @@ export default function LevelChart() {
     </div>
   );
 }
-
-const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      display: false,
-    },
-    title: {
-      display: false,
-    },
-  },
-  aspectRatio: 5.5,
-  animation: {
-    duration: 0,
-  },
-};

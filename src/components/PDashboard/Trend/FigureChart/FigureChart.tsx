@@ -1,5 +1,4 @@
 import React from "react";
-import ChartTitle from "../ChartTitle/ChartTitle";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,9 +11,10 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import NoData from "components/PDashboard/common/NoData/NoData";
 import { RootState } from "store";
 import { useSelector } from "react-redux";
+import { trendOption } from "lib/chartOptions";
+import { ChartTitle, NoData } from "components/PDashboard/common";
 
 ChartJS.register(
   CategoryScale,
@@ -37,7 +37,7 @@ export default function FigureChart() {
       <div className="trend__chart__wrapper">
         {surveyResult.length > 0 ? (
           <Line
-            options={options}
+            options={trendOption}
             data={{
               labels: surveyResult.map((survey) => survey.SEQ),
               datasets: [
@@ -72,19 +72,3 @@ export default function FigureChart() {
     </div>
   );
 }
-
-const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      display: false,
-    },
-    title: {
-      display: false,
-    },
-  },
-  aspectRatio: 5.5,
-  animation: {
-    duration: 0,
-  },
-};

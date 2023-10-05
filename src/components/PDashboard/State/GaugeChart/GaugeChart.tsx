@@ -5,7 +5,7 @@ import { Doughnut } from "react-chartjs-2";
 import styles from "./GaugeChart.module.css";
 import classNames from "classnames/bind";
 import { Anchor, Font } from "chartjs-plugin-datalabels/types/options";
-import ChartTitle from "components/PDashboard/Trend/ChartTitle/ChartTitle";
+import ChartTitle from "components/PDashboard/common/ChartTitle/ChartTitle";
 const cn = classNames.bind(styles);
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
