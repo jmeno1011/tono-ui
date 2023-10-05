@@ -28,7 +28,7 @@ const options = {
       align: (context: any) => {
         const len = context.dataset.data.length;
         const degree = 180 / len;
-        return degree * context.dataIndex - degree;
+        return (degree * context.dataIndex);
       },
       anchor: () => "end" as Anchor,
       font: () => {
