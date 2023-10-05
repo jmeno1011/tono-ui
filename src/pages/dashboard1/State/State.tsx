@@ -1,16 +1,11 @@
 import React from "react";
 import styles from "./State.module.css";
-import { RootState } from "store";
-import { useSelector } from "react-redux";
 import GaugeChart from "components/PDashboard/State/GaugeChart/GaugeChart";
 import DonutChart from "components/PDashboard/State/DonutChart/DonutChart";
 import StackChart from "components/PDashboard/State/StackChart/StackChart";
 import HorizontalBarChart from "components/PDashboard/State/HorizontalBarChart/HorizontalBarChart";
 
 export default function State() {
-  const { surveyResult } = useSelector((state: RootState) => state.pDash);
-  console.log(surveyResult);
-
   return (
     <div className={styles.container}>
       <div className={styles.row}>
