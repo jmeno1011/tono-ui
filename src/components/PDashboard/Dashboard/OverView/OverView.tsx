@@ -13,7 +13,6 @@ import NoData from "components/PDashboard/common/NoData/NoData";
 
 export default function OverView() {
   const { surveyResult } = useSelector((state: RootState) => state.pDash);
-  console.log(surveyResult);
 
   return (
     <div className={styles.container}>
