@@ -11,8 +11,9 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import ChartTitle from "../ChartTitle/ChartTitle";
-import { Datasets } from "types/pType";
 import NoData from "components/PDashboard/common/NoData/NoData";
+import { useSelector } from "react-redux";
+import { RootState } from "store";
 
 ChartJS.register(
   CategoryScale,
@@ -24,19 +25,27 @@ ChartJS.register(
   Legend
 );
 
-interface LevelChartProps {
-  levelData: Datasets;
-}
-
-export default function LevelChart({ levelData }: LevelChartProps) {
+export default function LevelChart() {
+  const { surveyResult } = useSelector((state: RootState) => state.pDash);
+  
   return (
     <div className="trend__chart__container">
       <header>
         <ChartTitle>Level</ChartTitle>
       </header>
       <div className="trend__chart__wrapper">
-        {levelData.labels.length > 0 ? (
-          <Line options={options} data={levelData} redraw={true} />
+        {surveyResult.length > 0 ? (
+          <Line options={options} data={{
+            labels: surveyResult.map((survey) => survey.SEQ),
+            datasets: [
+              {
+                label: "level",
+                data: surveyResult.map((survey) => survey.LEVEL),
+                borderColor: "rgb(103, 80, 164)",
+                backgroundColor: "rgb(103, 80, 164)",
+              },
+            ],
+          }} />
         ) : (
           <NoData />
         )}

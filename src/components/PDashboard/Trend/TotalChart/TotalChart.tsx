@@ -10,8 +10,9 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { Datasets } from "types/pType";
 import NoData from "components/PDashboard/common/NoData/NoData";
+import { RootState } from "store";
+import { useSelector } from "react-redux";
 
 ChartJS.register(
   CategoryScale,
@@ -22,19 +23,28 @@ ChartJS.register(
   Legend
 );
 
-interface TotalChartProps {
-  totalData: Datasets;
-}
-
-export default function TotalChart({ totalData }: TotalChartProps) {
+export default function TotalChart() {
+  const { surveyResult } = useSelector((state: RootState) => state.pDash);
   return (
     <div className="trend__chart__container">
       <header>
         <ChartTitle>Total</ChartTitle>
       </header>
       <div className="trend__chart__wrapper">
-        {totalData.labels.length > 0 ? (
-          <Bar options={options} data={totalData} />
+        {surveyResult.length > 0 ? (
+          <Bar
+            options={options}
+            data={{
+              labels: surveyResult.map((survey) => survey.SEQ),
+              datasets: [
+                {
+                  label: "total",
+                  data: surveyResult.map((survey) => survey.TOTAL),
+                  backgroundColor: "rgb(103, 80, 164)",
+                },
+              ],
+            }}
+          />
         ) : (
           <NoData />
         )}

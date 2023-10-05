@@ -52,16 +52,3 @@ export interface Figures {
   figure2: number | string;
   figure3: number | string;
 }
-
-export interface Datasets {
-  labels: (number | string)[];
-  datasets: dataset[];
-}
-
-interface dataset {
-  fill?: boolean;
-  label: string;
-  data: (number | string)[];
-  borderColor?: string;
-  backgroundColor: string;
-}
