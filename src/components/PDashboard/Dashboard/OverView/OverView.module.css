@@ -1,3 +1,10 @@
 .container{
-  height: 400px;
+  min-height: 400px;
+}
+
+.noData{
+  padding: 1rem;
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 1.25rem;
 }
