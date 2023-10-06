@@ -6,30 +6,32 @@ interface pDashState {
   user: PUserInfo | null;
   userList: PUserInfo[];
   surveyResult: PSurveyResult[];
+  stateRounds: number[];
 }
 
 const initialState: pDashState = {
   userCode: '',
   user: null,
   userList: [],
-  surveyResult: []
+  surveyResult: [],
+  stateRounds: []
 };
 
 export const pDash = createSlice({
   name: 'pDash',
   initialState,
   reducers: {
-    userCodeAction: (state, action) =>({
+    userCodeAction: (state, action) => ({
       ...state,
-      userCode : action.payload
+      userCode: action.payload
     }),
-    userAction: (state, action) =>({
+    userAction: (state, action) => ({
       ...state,
       user: {
         ...action.payload
       }
     }),
-    userListAction: (state, action)=>({
+    userListAction: (state, action) => ({
       ...state,
       userList: action.payload
     }),
@@ -37,6 +39,10 @@ export const pDash = createSlice({
       ...state,
       surveyResult: action.payload
     }),
+    setStateRounds: (state, action) => ({
+      ...state,
+      stateRounds: action.payload
+    })
   }
 });
 
