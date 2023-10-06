@@ -61,5 +61,5 @@ const options = {
       display: false,
     }
   },
-  aspectRatio: 385 / 300 ,
+  aspectRatio: 385 / 285 ,
 };

@@ -1,0 +1,22 @@
+.container{
+  padding: 0.5rem;
+  background-color: #fff;
+  border: var(--border);
+  border-radius: var(--border-radius-rem);
+  box-shadow: var(--box-shadow);
+}
+
+.container > h3{
+  font-size: var(--typography-h3);
+}
+
+.checkListBox{
+  margin-top: 10px;
+}
+
+.checkRow{
+  margin-bottom: 4px;
+  display: flex;
+  gap: 10px;
+  line-height: 1.75;
+}

@@ -70,4 +70,5 @@ const options = {
       stacked: true,
     },
   },
+  aspectRatio: 385 / 285 ,
 };

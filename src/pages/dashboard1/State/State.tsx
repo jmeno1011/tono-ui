@@ -4,6 +4,7 @@ import GaugeChart from "components/PDashboard/State/GaugeChart/GaugeChart";
 import DonutChart from "components/PDashboard/State/DonutChart/DonutChart";
 import StackChart from "components/PDashboard/State/StackChart/StackChart";
 import HorizontalBarChart from "components/PDashboard/State/HorizontalBarChart/HorizontalBarChart";
+import Filter from "components/PDashboard/State/Filter/Filter";
 
 export default function State() {
   return (
@@ -13,7 +14,7 @@ export default function State() {
         <GaugeChart score={"Lv 2"} data={levelData} title={"Level"} />
         <DonutChart />
       </div>
-      <div className={styles.filter}>filter</div>
+      <Filter />
       <div className={styles.row}>
         <StackChart />
         <HorizontalBarChart />
