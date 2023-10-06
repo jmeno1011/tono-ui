@@ -32,23 +32,23 @@ export default function StackChart() {
       <ChartTitle>Figure Stack</ChartTitle>
       <Bar options={options} data={
         {
-          labels: surveyResult.filter(survey=> survey.PROCESS_STATE !== "진행중").map((survey) => survey.SEQ),
+          labels: surveyResult.map((survey) => survey.SEQ),
           datasets: [
             {
               label: "FIGURE1",
-              data: surveyResult.filter(survey=> survey.PROCESS_STATE !== "진행중").map((survey) => survey.FIGURE1),
+              data: surveyResult.map((survey) => survey.FIGURE1),
               borderColor: "rgb(103, 80, 164)",
               backgroundColor: "rgb(103, 80, 164, 0.5)",
             },
             {
               label: "FIGURE2",
-              data: surveyResult.filter(survey=> survey.PROCESS_STATE !== "진행중").map((survey) => survey.FIGURE2),
+              data: surveyResult.map((survey) => survey.FIGURE2),
               borderColor: "rgb(157, 179, 88)",
               backgroundColor: "rgb(157, 179, 88, 0.5)",
             },
             {
               label: "FIGURE3",
-              data: surveyResult.filter(survey=> survey.PROCESS_STATE !== "진행중").map((survey) => survey.FIGURE3),
+              data: surveyResult.map((survey) => survey.FIGURE3),
               borderColor: "rgb(48, 74, 150)",
               backgroundColor: "rgb(48, 74, 150, 0.5)",
             },
