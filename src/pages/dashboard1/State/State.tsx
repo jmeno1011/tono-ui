@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./State.module.css";
 import GaugeChart from "components/PDashboard/State/GaugeChart/GaugeChart";
 import DonutChart from "components/PDashboard/State/DonutChart/DonutChart";
@@ -7,9 +7,17 @@ import HorizontalBarChart from "components/PDashboard/State/HorizontalBarChart/H
 import Filter from "components/PDashboard/State/Filter/Filter";
 
 export default function State() {
+  const [selectedRound, setSelectedRound] = useState<number[]>([]);
   const selectRound = (round: number)=>{
-    
+    if(!selectedRound.includes(round)){
+      setSelectedRound((prev)=>[...prev, round]);
+    }else{
+      setSelectedRound(prev=>prev.filter(value => value!==round));
+    }
   }
+
+  console.log(selectedRound);
+  
   return (
     <div className={styles.container}>
       <div className={styles.row}>
@@ -17,7 +25,7 @@ export default function State() {
         <GaugeChart score={"Lv 2"} data={levelData} title={"Level"} />
         <DonutChart />
       </div>
-      <Filter />
+      <Filter selectedRound={selectedRound} selectRound={selectRound}/>
       <div className={styles.row}>
         <StackChart />
         <HorizontalBarChart />

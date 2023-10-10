@@ -3,7 +3,12 @@ import styles from "./Filter.module.css";
 import { RootState } from "store";
 import { useSelector } from "react-redux";
 
-export default function Filter() {
+interface FilterProps{
+  selectedRound: number[];
+  selectRound: (round:number)=>void;
+}
+
+export default function Filter({selectedRound, selectRound}:FilterProps) {
   const { surveyResult } = useSelector((state: RootState) => state.pDash);
   return (
     <div className={styles.container}>
@@ -13,7 +18,7 @@ export default function Filter() {
           .map((survey) => survey.SEQ)
           .map((value) => (
             <div key={value} className={styles.checkRow}>
-              <input type="checkbox" id={value.toString()} />
+              <input type="checkbox" id={value.toString()} onClick={()=>selectRound(value)} checked={selectedRound.includes(value)} />
               <label htmlFor={value.toString()}>{value}회차</label>
             </div>
           ))}
