@@ -16,8 +16,6 @@ export default function State() {
     }
   }
 
-  console.log(selectedRound);
-  
   return (
     <div className={styles.container}>
       <div className={styles.row}>
