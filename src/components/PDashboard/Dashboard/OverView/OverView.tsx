@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "store";
 import styles from "./OverView.module.css";
 import NoData from "components/PDashboard/common/NoData/NoData";
+import TableHeadCell from "components/UI/Table/TableHeadCell";
 
 export default function OverView() {
   const { surveyResult } = useSelector((state: RootState) => state.pDash);
@@ -19,13 +20,13 @@ export default function OverView() {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>INDEX</TableCell>
-            <TableCell>CODE</TableCell>
-            <TableCell>ROUND</TableCell>
-            <TableCell>TOTAL</TableCell>
-            <TableCell>LEVEL</TableCell>
-            <TableCell>START_DATE</TableCell>
-            <TableCell>END_DATE</TableCell>
+            <TableHeadCell>INDEX</TableHeadCell>
+            <TableHeadCell>CODE</TableHeadCell>
+            <TableHeadCell>ROUND</TableHeadCell>
+            <TableHeadCell>TOTAL</TableHeadCell>
+            <TableHeadCell>LEVEL</TableHeadCell>
+            <TableHeadCell>START_DATE</TableHeadCell>
+            <TableHeadCell>END_DATE</TableHeadCell>
           </TableRow>
         </TableHead>
         <TableBody>
