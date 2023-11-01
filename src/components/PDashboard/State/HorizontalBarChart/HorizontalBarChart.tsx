@@ -36,24 +36,27 @@ export default function HorizontalBarChart({selectedRound}:HorizontalBarChartPro
   return (
     <div className={styles.container}>
       <ChartTitle>HorizontalBarChart</ChartTitle>
-      <Bar
-        options={options}
-        data={{
-          labels: QUESTION_LIST,
-          datasets: [
-            {
-              label: "total",
-              data: QUESTION_LIST.map((question) => lastSurveyResult[question]),
-              backgroundColor: [
-                "rgb(103, 80, 164)",
-                "rgb(157, 179, 88)",
-                "rgb(48, 74, 150)",
-              ],
-              borderColor: "rgb(103, 80, 164)",
-            },
-          ],
-        }}
-      />
+      {
+        surveyResult.length > 0 ?
+        <Bar
+          options={options}
+          data={{
+            labels: QUESTION_LIST,
+            datasets: [
+              {
+                label: "total",
+                data: QUESTION_LIST.map((question) => lastSurveyResult[question]),
+                backgroundColor: [
+                  "rgb(103, 80, 164)",
+                  "rgb(157, 179, 88)",
+                  "rgb(48, 74, 150)",
+                ],
+                borderColor: "rgb(103, 80, 164)",
+              },
+            ],
+          }}
+        />: <div>no data</div>
+      }
     </div>
   );
 }
