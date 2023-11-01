@@ -7,10 +7,11 @@ import HorizontalBarChart from "components/PDashboard/State/HorizontalBarChart/H
 import Filter from "components/PDashboard/State/Filter/Filter";
 
 export default function State() {
-  const [selectedRound, setSelectedRound] = useState<number[]>([]);
+  const [selectedRound, setSelectedRound] = useState<number[]>([1]);
   const selectRound = (round: number)=>{
     if(!selectedRound.includes(round)){
-      setSelectedRound((prev)=>[...prev, round]);
+      const sortArray = [...selectedRound, round].sort();
+      setSelectedRound(sortArray);
     }else{
       setSelectedRound(prev=>prev.filter(value => value!==round));
     }
@@ -25,8 +26,8 @@ export default function State() {
       </div>
       <Filter selectedRound={selectedRound} selectRound={selectRound}/>
       <div className={styles.row}>
-        <StackChart />
-        <HorizontalBarChart />
+        <StackChart selectedRound={selectedRound}/>
+        <HorizontalBarChart selectedRound={selectedRound}/>
       </div>
     </div>
   );

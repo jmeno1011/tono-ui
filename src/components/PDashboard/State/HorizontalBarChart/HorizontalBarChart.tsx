@@ -24,42 +24,50 @@ ChartJS.register(
   Legend
 );
 
-export default function HorizontalBarChart() {
+interface HorizontalBarChartProps{
+  selectedRound: number[];
+}
+
+export default function HorizontalBarChart({selectedRound}:HorizontalBarChartProps) {
   const { surveyResult } = useSelector((state: RootState) => state.pDash);
-  const lastSurveyResult: {[key: string]: any} = surveyResult[surveyResult.length - 1];
-  console.log(QUESTION_LIST.map((question) => lastSurveyResult[question] ));
-  
-  
+  const lastSurveyResult: { [key: string]: any } =
+    surveyResult[selectedRound.length > 0 ? selectedRound[selectedRound.length - 1] - 1 : surveyResult.length - 1];
+    
   return (
     <div className={styles.container}>
       <ChartTitle>HorizontalBarChart</ChartTitle>
-      <Bar options={options} data={{
-              labels: QUESTION_LIST,
-              datasets: [
-                {
-                  label: "total",
-                  data: QUESTION_LIST.map((question) => lastSurveyResult[question]),
-                  backgroundColor: ["rgb(103, 80, 164)", "rgb(157, 179, 88)", "rgb(48, 74, 150)"],
-                  borderColor: "rgb(103, 80, 164)",
-                },
+      <Bar
+        options={options}
+        data={{
+          labels: QUESTION_LIST,
+          datasets: [
+            {
+              label: "total",
+              data: QUESTION_LIST.map((question) => lastSurveyResult[question]),
+              backgroundColor: [
+                "rgb(103, 80, 164)",
+                "rgb(157, 179, 88)",
+                "rgb(48, 74, 150)",
               ],
-            }} />
+              borderColor: "rgb(103, 80, 164)",
+            },
+          ],
+        }}
+      />
     </div>
   );
 }
 
 const options = {
   indexAxis: "y" as const,
-  // elements: {
-  //   bar: {
-  //     borderWidth: 2,
-  //   },
-  // },
   responsive: true,
   plugins: {
     legend: {
       display: false,
+    },
+    datalabels: {
+      display: false
     }
   },
-  aspectRatio: 385 / 285 ,
+  aspectRatio: 300 / 285,
 };

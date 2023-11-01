@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -7,13 +7,14 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
 
-import styles from "./StackChart.module.css"
-import { ChartTitle } from 'components/PDashboard/common';
-import { RootState } from 'store';
-import { useSelector } from 'react-redux';
+import styles from "./StackChart.module.css";
+import { ChartTitle } from "components/PDashboard/common";
+import { RootState } from "store";
+import { useSelector } from "react-redux";
+import { Font } from "chartjs-plugin-datalabels/types/options";
 
 ChartJS.register(
   CategoryScale,
@@ -24,14 +25,19 @@ ChartJS.register(
   Legend
 );
 
-export default function StackChart() {
+interface StackChartProps {
+  selectedRound: number[];
+}
+
+export default function StackChart({ selectedRound }: StackChartProps) {
   const { surveyResult } = useSelector((state: RootState) => state.pDash);
 
   return (
     <div className={styles.container}>
       <ChartTitle>Figure Stack</ChartTitle>
-      <Bar options={options} data={
-        {
+      <Bar
+        options={options}
+        data={{
           labels: surveyResult.map((survey) => survey.SEQ),
           datasets: [
             {
@@ -53,14 +59,14 @@ export default function StackChart() {
               backgroundColor: "rgb(48, 74, 150, 0.5)",
             },
           ],
-        }
-      } />
+        }}
+      />
     </div>
-  )
+  );
 }
 
 const options = {
-  indexAxis: 'y' as const,
+  indexAxis: "y" as const,
   responsive: true,
   scales: {
     x: {
@@ -70,5 +76,15 @@ const options = {
       stacked: true,
     },
   },
-  aspectRatio: 385 / 285 ,
+  aspectRatio: 300 / 285,
+  plugins: {
+    datalabels: {
+      font: () => {
+        return {
+          size: 14,
+          weight: "bold",
+        } as Font;
+      },
+    },
+  },
 };
