@@ -14,10 +14,11 @@ import { RootState } from "store";
 import { PUserInfo } from "types/pType";
 import { userCodeAction, userAction, surveyResultAction } from "redux/features/pDashboard";
 import { db } from "lib/api";
+import { modalI } from "pages/dashboard1/home/PDashboard";
 
 interface SearchModalProps {
   onCloseModal: () => void;
-  setOpenModal: Dispatch<SetStateAction<boolean>>;
+  setOpenModal: Dispatch<SetStateAction<modalI>>;
 }
 
 export default function SearchModal({
@@ -37,7 +38,10 @@ export default function SearchModal({
   const onClickUser = async (userinfo: PUserInfo) => {
     dispatch(userCodeAction(userinfo.CODE));
     dispatch(userAction(userinfo));
-    setOpenModal(false);
+    setOpenModal(prev => ({
+      ...prev,
+      showSearchbar: false
+    }));
     let { data, error } = await db
       .selectSurveyResult()
       .select("*")
@@ -57,7 +61,10 @@ export default function SearchModal({
       target.contains(modalRef.current) &&
       !modalRef.current.contains(target)
     ) {
-      setOpenModal(false);
+      setOpenModal(prev => ({
+        ...prev,
+        showSearchbar: false
+      }));
     }
   };
 

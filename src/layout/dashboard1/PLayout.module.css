@@ -3,8 +3,20 @@
   flex-direction: column;
 }
 
+@media (max-width: 1200px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1200px) {
+  .wrapper {
+    display: flex;
+    
+  }
+}
 .wrapper{
-  display: flex;
   background-color: var(--p-container-background);
 }
 

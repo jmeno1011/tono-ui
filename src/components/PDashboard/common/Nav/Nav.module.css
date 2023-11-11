@@ -1,16 +1,35 @@
-.container{
-  min-height: calc(100vh - 60px);
-  width: 200px;
-  border-right: 1px solid silver;
-  background-color: #fff;
+@media (max-width: 1200px) {
+  .container{
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid silver;
+    background-color: #fff;
+  }
 }
 
-.container > ul {
-  display: flex;
-  flex-direction: column;
+@media (min-width: 1200px) {
+  .container {
+    min-height: calc(100vh - 60px);
+    width: 200px;
+    border-right: 1px solid silver;
+    background-color: #fff;
+  }
 }
 
-.li > a{
+@media (max-width: 1200px) {
+  .container>ul {
+    display: flex;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container>ul {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.li>a {
   padding: 0.5rem 1rem;
   width: 100%;
   display: inline-block;
@@ -19,14 +38,35 @@
   font-size: 0.875rem;
   font-weight: 700;
   color: var(--p-color);
-  
+
 }
 
-.active{
-  background-color: var(--p-container-color);
-  border-right: 4px solid var(--p-secondary-color);
+
+@media (max-width: 1200px) {
+  .active {
+    background-color: var(--p-container-color);
+    position: relative;
+  }
+  .active::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4px;
+    background-color: var(--p-secondary-color);
+  }
 }
 
-.active > a{
+@media (min-width: 1200px) {
+  .active {
+    background-color: var(--p-container-color);
+    border-right: 4px solid var(--p-secondary-color);
+  }
+}
+
+
+
+.active>a {
   color: var(--p-secondary-color);
 }
