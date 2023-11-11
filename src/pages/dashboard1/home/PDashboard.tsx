@@ -81,9 +81,6 @@ export default function PDashboard() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(inerWidth);
-
-
   useEffect(() => {
     window.addEventListener('resize', handleResize);
     return () => {
