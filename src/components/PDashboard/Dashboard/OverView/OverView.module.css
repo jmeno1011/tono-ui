@@ -1,5 +1,7 @@
 .container{
   min-height: 400px;
+  width: 100%;
+  overflow-x: auto;
 }
 
 .noData{

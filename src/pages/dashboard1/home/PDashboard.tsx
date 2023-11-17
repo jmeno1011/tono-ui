@@ -33,7 +33,6 @@ export default function PDashboard() {
     showCalendar: false,
     showSearchbar: false,
   });
-  const [inerWidth, setinerWidth] = useState(window.innerWidth);
   const onOpenModal = (type: string) => {
     if (type === "search") {
       setOpenModal({
@@ -72,34 +71,20 @@ export default function PDashboard() {
     }
   };
 
-  const handleResize = () => {
-    setinerWidth(window.innerWidth);
-  }
-
   useEffect(() => {
     fetchUserList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    }
-  }, [])
 
   return (
     <div className={styles.container}>
       <header className={styles.header}>
         <Title>Dashboard</Title>
         <div className={styles.btnGroup}>
-          {
-            inerWidth <= 1200 ?
-              <div className={styles.iconBox} onClick={() => onOpenModal("calendar")}>
-                <CalendarIcon />
-                <span>calendar</span>
-              </div> : null
-          }
+          <div className={styles.iconBox} onClick={() => onOpenModal("calendar")}>
+            <CalendarIcon />
+            <span>calendar</span>
+          </div>
           <SearchBar onOpenModal={onOpenModal} />
           <div className={styles.iconBox} onClick={onClickRefresh}>
             <Refresh />
@@ -110,10 +95,7 @@ export default function PDashboard() {
       <div className={styles.summary}>
         <UserInfo user={user} />
         <Cards />
-        {
-          inerWidth >= 1200 ?
-          <CalendarComponent value={value} onChange={onChange} />:null
-        }
+        <CalendarComponent value={value} onChange={onChange} />
       </div>
       <Tabs />
       <main className={styles.main}>

@@ -1,8 +1,12 @@
-.container{
+@media (min-width:768px) {
+  .container {
+    min-width: 150px;
+  }
+}
+
+.container {
   padding: 6px 12px;
-  min-width: 150px;
   background-color: #fff;
-  /* background-color: var(--p-container-color); */
   border: var(--border);
   border-radius: var(--border-radius-rem);
   box-shadow: var(--box-shadow);
@@ -12,21 +16,29 @@
   cursor: pointer;
 }
 
-.container:hover{
+.container:hover {
   background-color: var(--p-container-color);
 }
 
-.container > svg{
+.container>svg {
   font-size: 1.25rem;
   color: var(--p-secondary-color);
 }
 
-.container >span{
-  color: var(--p-color);
-  user-select: none;
+@media (max-width: 768px) {
+  .container>span {
+    display: none;
+  }
 }
 
-.inputSearch{
+@media (min-width: 768px) {
+  .container>span {
+    color: var(--p-color);
+    user-select: none;
+  }
+}
+
+.inputSearch {
   width: 100%;
   background-color: transparent;
   outline: none;
