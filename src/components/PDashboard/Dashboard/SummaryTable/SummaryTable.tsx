@@ -8,11 +8,11 @@ import {
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
-import styles from "./OverView.module.css";
+import styles from "./SummaryTable.module.css";
 import NoData from "components/PDashboard/common/NoData/NoData";
 import TableHeadCell from "components/UI/Table/TableHeadCell";
 
-export default function OverView() {
+export default function SummaryTable() {
   const { surveyResult } = useSelector((state: RootState) => state.pDash);
 
   return (

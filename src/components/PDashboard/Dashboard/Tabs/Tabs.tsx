@@ -10,19 +10,19 @@ export default function Tabs() {
         className={"/p-dashboard" === pathname ? styles.tabClass : ""}
         to={"/p-dashboard"}
       >
-        <span>overview</span>
+        <span>Summary Table</span>
       </Link>
       <Link
         className={"/p-dashboard/trend" === pathname ? styles.tabClass : ""}
         to={"/p-dashboard/trend"}
       >
-        <span>trend</span>
+        <span>Description</span>
       </Link>
       <Link
         className={"/p-dashboard/state" === pathname ? styles.tabClass : ""}
         to={"/p-dashboard/state"}
       >
-        <span>state</span>
+        <span>State</span>
       </Link>
     </div>
   );

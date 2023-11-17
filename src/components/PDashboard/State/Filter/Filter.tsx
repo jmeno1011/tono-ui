@@ -10,7 +10,7 @@ interface FilterProps {
 
 export default function Filter({ selectedRound, selectRound }: FilterProps) {
   const { surveyResult } = useSelector((state: RootState) => state.pDash);
-  console.log(selectedRound);
+  // console.log(selectedRound);
   
   return (
     <div className={styles.container}>

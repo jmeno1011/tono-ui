@@ -16,8 +16,8 @@ import { db } from "lib/api";
 import { useDispatch, useSelector } from "react-redux";
 import { userCodeAction, userAction, userListAction, surveyResultAction } from "redux/features/pDashboard";
 import { RootState } from "store";
-import OverView from "components/PDashboard/Dashboard/OverView/OverView";
 import CalendarModal from "components/PDashboard/common/ModalPortal/CalendarModal";
+import SummaryTable from "components/PDashboard/Dashboard/SummaryTable/SummaryTable";
 
 export interface modalI {
   showCalendar: boolean;
@@ -101,7 +101,7 @@ export default function PDashboard() {
       <main className={styles.main}>
         <Outlet />
         {pathname === "/p-dashboard" && <div className={styles.overview}>
-          <OverView />
+          <SummaryTable />
         </div>}
       </main>
       <ModalPortal>

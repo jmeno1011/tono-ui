@@ -3,14 +3,12 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
-  Filler,
   Legend,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { RootState } from "store";
 import { useSelector } from "react-redux";
 import { trendOption } from "lib/chartOptions";
@@ -19,11 +17,9 @@ import { ChartTitle, NoData } from "components/PDashboard/common";
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
-  Filler,
   Legend
 );
 
@@ -36,31 +32,37 @@ export default function FigureChart() {
       </header>
       <div className="trend__chart__wrapper">
         {surveyResult.length > 0 ? (
-          <Line
+          <Bar
             options={trendOption}
             data={{
               labels: surveyResult.map((survey) => survey.SEQ),
               datasets: [
                 {
-                  fill: true,
                   label: "FIGURE1",
                   data: surveyResult.map((survey) => survey.FIGURE1),
-                  borderColor: "rgb(103, 80, 164)",
-                  backgroundColor: "rgb(103, 80, 164, 0.5)",
+                  // borderColor: "rgb(103, 80, 164)",
+                  backgroundColor: "rgb(103, 80, 164)",
+                  barPercentage: 0.5,
+                  borderColor: "black",
+                  borderWidth: 2,
                 },
                 {
-                  fill: true,
                   label: "FIGURE2",
                   data: surveyResult.map((survey) => survey.FIGURE2),
-                  borderColor: "rgb(157, 179, 88)",
-                  backgroundColor: "rgb(157, 179, 88, 0.5)",
+                  // borderColor: "rgb(157, 179, 88)",
+                  backgroundColor: "rgb(157, 179, 88)",
+                  barPercentage: 0.5,
+                  borderColor: "black",
+                  borderWidth: 2,
                 },
                 {
-                  fill: true,
                   label: "FIGURE3",
                   data: surveyResult.map((survey) => survey.FIGURE3),
-                  borderColor: "rgb(48, 74, 150)",
-                  backgroundColor: "rgb(48, 74, 150, 0.5)",
+                  // borderColor: "rgb(48, 74, 150)",
+                  backgroundColor: "rgb(48, 74, 150)",
+                  barPercentage: 0.5,
+                  borderColor: "black",
+                  borderWidth: 2,
                 },
               ],
             }}
