@@ -18,12 +18,12 @@ export default function Tabs() {
       >
         <span>Description</span>
       </Link>
-      <Link
+      {/* <Link
         className={"/p-dashboard/state" === pathname ? styles.tabClass : ""}
         to={"/p-dashboard/state"}
       >
         <span>State</span>
-      </Link>
+      </Link> */}
     </div>
   );
 }
