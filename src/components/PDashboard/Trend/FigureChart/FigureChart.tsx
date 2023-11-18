@@ -31,6 +31,7 @@ export default function FigureChart() {
         <ChartTitle>Figure</ChartTitle>
       </header>
       <div className="trend__chart__wrapper">
+        <div>
         {surveyResult.length > 0 ? (
           <Bar
             options={trendOption}
@@ -40,29 +41,20 @@ export default function FigureChart() {
                 {
                   label: "FIGURE1",
                   data: surveyResult.map((survey) => survey.FIGURE1),
-                  // borderColor: "rgb(103, 80, 164)",
-                  backgroundColor: "rgb(103, 80, 164)",
+                  backgroundColor: "rgb(0, 143, 251)",
                   barPercentage: 0.5,
-                  borderColor: "black",
-                  borderWidth: 2,
                 },
                 {
                   label: "FIGURE2",
                   data: surveyResult.map((survey) => survey.FIGURE2),
-                  // borderColor: "rgb(157, 179, 88)",
-                  backgroundColor: "rgb(157, 179, 88)",
+                  backgroundColor: "rgb(0, 227, 150)",
                   barPercentage: 0.5,
-                  borderColor: "black",
-                  borderWidth: 2,
                 },
                 {
                   label: "FIGURE3",
                   data: surveyResult.map((survey) => survey.FIGURE3),
-                  // borderColor: "rgb(48, 74, 150)",
-                  backgroundColor: "rgb(48, 74, 150)",
+                  backgroundColor: "rgb(254, 176, 25)",
                   barPercentage: 0.5,
-                  borderColor: "black",
-                  borderWidth: 2,
                 },
               ],
             }}
@@ -70,6 +62,7 @@ export default function FigureChart() {
         ) : (
           <NoData />
         )}
+        </div>
       </div>
     </div>
   );

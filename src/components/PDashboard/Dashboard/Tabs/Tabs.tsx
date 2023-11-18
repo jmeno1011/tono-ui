@@ -10,7 +10,7 @@ export default function Tabs() {
         className={"/p-dashboard" === pathname ? styles.tabClass : ""}
         to={"/p-dashboard"}
       >
-        <span>Summary Table</span>
+        <span>Summary</span>
       </Link>
       <Link
         className={"/p-dashboard/trend" === pathname ? styles.tabClass : ""}

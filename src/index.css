@@ -91,4 +91,13 @@ code {
 
 .trend__chart__wrapper{
   height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trend__chart__wrapper > div{
+  height: 200px;
+  max-width: 1000px;
+  width: 100%;
 }
