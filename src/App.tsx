@@ -2,14 +2,10 @@ import React from "react";
 import "./App.css";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { About, Home } from "pages";
-import Layout from "layout/Layout";
-import { PDashboard, PLogin } from "pages/dashboard1";
+import { PDashboard, PLogin, PSurvey, State, Trend } from "pages/dashboard1";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
-import PLayout from "layout/dashboard1/PLayout";
-import PSurvey from "pages/dashboard1/Survey/PSurvey";
-import Trend from "pages/dashboard1/Trend/Trend";
-import State from "pages/dashboard1/State/State";
+import { Layout, PLayout } from "layout";
 
 function App() {
   const { pathname } = useLocation();

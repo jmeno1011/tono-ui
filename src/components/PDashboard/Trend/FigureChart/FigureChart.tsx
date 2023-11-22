@@ -9,10 +9,9 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { RootState } from "store";
-import { useSelector } from "react-redux";
 import { trendOption } from "lib/chartOptions";
 import { ChartTitle, NoData } from "components/PDashboard/common";
+import { PSurveyResult } from "types/pType";
 
 ChartJS.register(
   CategoryScale,
@@ -23,8 +22,11 @@ ChartJS.register(
   Legend
 );
 
-export default function FigureChart() {
-  const { surveyResult } = useSelector((state: RootState) => state.pDash);
+interface FigureChartProps{
+  surveyResult: PSurveyResult[];
+}
+
+export default function FigureChart({surveyResult}:FigureChartProps) {
   return (
     <div className="trend__chart__container">
       <header>

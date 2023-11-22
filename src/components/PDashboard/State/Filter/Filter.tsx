@@ -10,8 +10,7 @@ interface FilterProps {
 
 export default function Filter({ selectedRound, selectRound }: FilterProps) {
   const { surveyResult } = useSelector((state: RootState) => state.pDash);
-  // console.log(selectedRound);
-  
+
   return (
     <div className={styles.container}>
       <h3>Filter</h3>
@@ -19,10 +18,7 @@ export default function Filter({ selectedRound, selectRound }: FilterProps) {
         {surveyResult
           .map((survey) => survey.SEQ)
           .map((value) => (
-            <div
-              key={value}
-              className={styles.checkRow}
-            >
+            <div key={value} className={styles.checkRow}>
               <input
                 type="checkbox"
                 id={value.toString()}

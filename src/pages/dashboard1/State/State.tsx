@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import styles from "./State.module.css";
-import GaugeChart from "components/PDashboard/State/GaugeChart/GaugeChart";
-import DonutChart from "components/PDashboard/State/DonutChart/DonutChart";
-import StackChart from "components/PDashboard/State/StackChart/StackChart";
-import HorizontalBarChart from "components/PDashboard/State/HorizontalBarChart/HorizontalBarChart";
-import Filter from "components/PDashboard/State/Filter/Filter";
+import { DonutChart, Filter, GaugeChart, HorizontalBarChart, StackChart } from "components/PDashboard/State";
 
 export default function State() {
   const [selectedRound, setSelectedRound] = useState<number[]>([1]);

@@ -1,15 +1,15 @@
 import React from "react";
-// import TotalChart from "components/PDashboard/Trend/TotalChart/TotalChart";
 import styles from "./Trend.module.css";
-import LevelChart from "components/PDashboard/Trend/LevelChart/LevelChart";
-import FigureChart from "components/PDashboard/Trend/FigureChart/FigureChart";
+import { FigureChart, LevelChart } from "components/PDashboard/Trend";
+import { useSelector } from "react-redux";
+import { RootState } from "store";
 
 export default function Trend() {
+  const { surveyResult } = useSelector((state: RootState) => state.pDash);
   return (
     <div className={styles.container}>
-      <LevelChart />
-      {/* <TotalChart /> */}
-      <FigureChart />
+      <LevelChart surveyResult={surveyResult} />
+      <FigureChart surveyResult={surveyResult} />
     </div>
   );
 }

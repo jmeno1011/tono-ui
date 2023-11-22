@@ -11,11 +11,10 @@ import {
   LineController,
   BarController,
 } from "chart.js";
-import { Chart, Line } from "react-chartjs-2";
-import { useSelector } from "react-redux";
-import { RootState } from "store";
+import { Chart } from "react-chartjs-2";
 import { trendOption } from "lib/chartOptions";
 import { ChartTitle, NoData } from "components/PDashboard/common";
+import { PSurveyResult } from "types/pType";
 
 ChartJS.register(
   LinearScale,
@@ -29,26 +28,28 @@ ChartJS.register(
   BarController
 );
 
-export default function LevelChart() {
-  const { surveyResult } = useSelector((state: RootState) => state.pDash);
+interface LevelChartProps {
+  surveyResult: PSurveyResult[];
+}
 
+export default function LevelChart({ surveyResult }: LevelChartProps) {
   const data = {
     labels: surveyResult.map((survey) => survey.SEQ),
     datasets: [
       {
-        type: 'bar' as const,
+        type: "bar" as const,
         label: "total",
         data: surveyResult.map((survey) => survey.TOTAL),
         backgroundColor: "rgb(0, 143, 251)",
-        yAxisID: 'y',
+        yAxisID: "y",
         barPercentage: 0.2,
       },
       {
-        type: 'line' as const,
+        type: "line" as const,
         label: "level",
         data: surveyResult.map((survey) => survey.LEVEL),
         borderColor: "rgb(255, 69, 96)",
-        yAxisID: 'y1',
+        yAxisID: "y1",
       },
     ],
   };
@@ -61,7 +62,7 @@ export default function LevelChart() {
       <div className="trend__chart__wrapper">
         <div>
           {surveyResult.length > 0 ? (
-            <Chart type='bar' options={trendOption} data={data} />
+            <Chart type="bar" options={trendOption} data={data} />
           ) : (
             <NoData />
           )}

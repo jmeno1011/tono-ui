@@ -52,3 +52,8 @@ export interface Figures {
   figure2: number | string;
   figure3: number | string;
 }
+
+export interface ModalState{
+  showCalendar: boolean;
+  showSearchbar: boolean;
+}

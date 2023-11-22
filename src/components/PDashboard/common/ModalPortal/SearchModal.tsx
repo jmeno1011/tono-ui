@@ -8,17 +8,20 @@ import React, {
   SetStateAction,
 } from "react";
 import { ReactComponent as Search } from "assets/p-dashboard/search-bold.svg";
-import styles from "./SearchModal.module.css";
-import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store";
-import { PUserInfo } from "types/pType";
-import { userCodeAction, userAction, surveyResultAction } from "redux/features/pDashboard";
+import { useDispatch, useSelector } from "react-redux";
+import { ModalState, PUserInfo } from "types/pType";
+import {
+  userCodeAction,
+  userAction,
+  surveyResultAction,
+} from "redux/features/pDashboard";
 import { db } from "lib/api";
-import { modalI } from "pages/dashboard1/home/PDashboard";
+import styles from "./SearchModal.module.css";
 
 interface SearchModalProps {
   onCloseModal: () => void;
-  setOpenModal: Dispatch<SetStateAction<modalI>>;
+  setOpenModal: Dispatch<SetStateAction<ModalState>>;
 }
 
 export default function SearchModal({
@@ -27,7 +30,6 @@ export default function SearchModal({
 }: SearchModalProps) {
   const { userList } = useSelector((state: RootState) => state.pDash);
   const dispatch = useDispatch();
-
   const [name, setName] = useState<string>("");
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -38,9 +40,9 @@ export default function SearchModal({
   const onClickUser = async (userinfo: PUserInfo) => {
     dispatch(userCodeAction(userinfo.CODE));
     dispatch(userAction(userinfo));
-    setOpenModal(prev => ({
+    setOpenModal((prev) => ({
       ...prev,
-      showSearchbar: false
+      showSearchbar: false,
     }));
     let { data, error } = await db
       .selectSurveyResult()
@@ -53,28 +55,30 @@ export default function SearchModal({
     }
   };
 
-  const handleClickOutside = (e: MouseEvent) => {
-    const target = e.target as HTMLElement;
-    if (
-      modalRef.current &&
-      target &&
-      target.contains(modalRef.current) &&
-      !modalRef.current.contains(target)
-    ) {
-      setOpenModal(prev => ({
-        ...prev,
-        showSearchbar: false
-      }));
-    }
-  };
+  const handleClickOutside = useCallback(
+    (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (
+        modalRef.current &&
+        target &&
+        target.contains(modalRef.current) &&
+        !modalRef.current.contains(target)
+      ) {
+        setOpenModal((prev) => ({
+          ...prev,
+          showSearchbar: false,
+        }));
+      }
+    },
+    [setOpenModal]
+  );
 
   useEffect(() => {
     window.addEventListener("click", handleClickOutside);
     return () => {
       window.removeEventListener("click", handleClickOutside);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [handleClickOutside]);
 
   return (
     <div className={styles.container}>

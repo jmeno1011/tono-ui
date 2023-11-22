@@ -1,18 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
-import styles from "./PDashboard.module.css";
-import UserInfo from "components/PDashboard/Dashboard/UserInfo/UserInfo";
-import Title from "components/PDashboard/common/Title/Title";
-import Cards from "components/PDashboard/Dashboard/Cards/Cards";
-import SearchBar from "components/PDashboard/Dashboard/SearchBar/SearchBar";
-import CalendarComponent from "components/PDashboard/Dashboard/CalendarComponent/CalendarComponent";
+import { Outlet, useLocation } from "react-router-dom";
 import { ReactComponent as Refresh } from "assets/p-dashboard/round-refresh.svg";
 import { ReactComponent as CalendarIcon } from "assets/p-dashboard/calendar.svg";
-import { PUserInfo, Value } from "types/pType";
-import Tabs from "components/PDashboard/Dashboard/Tabs/Tabs";
-import { Outlet, useLocation } from "react-router-dom";
-import ModalPortal from "components/PDashboard/common/ModalPortal/ModalPortal";
-import SearchModal from "components/PDashboard/common/ModalPortal/SearchModal";
+import { ModalState, PUserInfo, Value } from "types/pType";
 import { db } from "lib/api";
+import { RootState } from "store";
 import { useDispatch, useSelector } from "react-redux";
 import {
   userCodeAction,
@@ -20,21 +12,29 @@ import {
   userListAction,
   surveyResultAction,
 } from "redux/features/pDashboard";
-import { RootState } from "store";
-import CalendarModal from "components/PDashboard/common/ModalPortal/CalendarModal";
-import SummaryTable from "components/PDashboard/Dashboard/SummaryTable/SummaryTable";
+import {
+  CalendarModal,
+  ModalPortal,
+  SearchModal,
+  Title,
+} from "components/PDashboard/common";
+import {
+  CalendarComponent,
+  Cards,
+  SearchBar,
+  SummaryTable,
+  Tabs,
+  UserInfo,
+} from "components/PDashboard/Dashboard";
 
-export interface modalI {
-  showCalendar: boolean;
-  showSearchbar: boolean;
-}
+import styles from "./PDashboard.module.css";
 
 export default function PDashboard() {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const { user } = useSelector((state: RootState) => state.pDash);
   const [value, onChange] = useState<Value>(new Date());
-  const [openModal, setOpenModal] = useState<modalI>({
+  const [openModal, setOpenModal] = useState<ModalState>({
     showCalendar: false,
     showSearchbar: false,
   });
