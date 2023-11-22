@@ -1,4 +1,4 @@
-.container{
+.container {
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -6,81 +6,83 @@
   padding-bottom: 60px;
 }
 
-.header{
+.header {
   display: flex;
   justify-content: space-between;
 }
 
-.btnGroup{
+.btnGroup {
   display: flex;
   gap: 8px;
 }
 
+/* 
 @media (max-width: 1200px) {
-  .iconBox{
-    padding: 6px;
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    border: var(--border);
-    border-radius: var(--border-radius-rem);
-    box-shadow: var(--box-shadow);
-    cursor: pointer;
-    user-select: none;
-  }
-}
-
-@media (min-width: 1200px) {
   .iconBox{
     display: none;
   }
+} */
+
+/* @media (min-width: 768px) { */
+.iconBox {
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: var(--border);
+  border-radius: var(--border-radius-rem);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  user-select: none;
 }
 
-.iconBox:hover{
+/* } */
+
+.iconBox:hover {
   background-color: var(--p-container-color);
 }
 
-.iconBox > svg{
+.iconBox>svg {
   width: 1.25rem;
   height: 1.25rem;
   color: var(--p-secondary-color);
 }
 
 @media (max-width: 768px) {
-  .iconBox>span{
+  .iconBox>span {
     display: none;
   }
 }
 
 @media (min-width: 768px) {
-  .iconBox > span{
+  .iconBox>span {
     text-transform: capitalize;
     padding: 0 0.5rem;
     font-size: 1rem;
     color: var(--p-secondary-color);
-  }  
+  }
 }
 
-@media (max-width: 1200px){
-  .summary >div{
+@media (max-width: 1200px) {
+  .summary>div {
     flex-grow: 1;
   }
 }
 
-@media (min-width: 1200px) {
-  
-}
+@media (min-width: 1200px) {}
 
-.summary{
+.summary {
   display: flex;
   gap: 20px;
 }
 
-/* .main{
-  padding: 0.5rem;
-} */
+@media (max-width: 1200px) {
+  .summary>div:last-child {
+    display: none;
+  }
+}
 
-.overview{
+.overview {
   min-height: 300px;
   background-color: #fff;
   border: var(--border);
@@ -88,7 +90,7 @@
   box-shadow: var(--box-shadow);
 }
 
-.modalCalendar{
+.modalCalendar {
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -99,7 +101,7 @@
   transition: opacity 100ms ease 0s;
 }
 
-.modalCalendar>div{
+.modalCalendar>div {
   margin: 60px auto auto;
   width: 400px;
   height: 300px;

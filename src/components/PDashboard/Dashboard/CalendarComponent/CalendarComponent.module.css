@@ -1,17 +1,9 @@
-@media (max-width: 1200px) {
-  .container {
-    display: none;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    padding: 1rem;
-    min-width: 296px;
-    width: var(--width-1-3-20px);
-    background-color: #fff;
-    border: var(--border);
-    border-radius: var(--border-radius-rem);
-    box-shadow: var(--box-shadow);
-  }
+.container {
+  padding: 1rem;
+  min-width: 296px;
+  width: var(--width-1-3-20px);
+  background-color: #fff;
+  border: var(--border);
+  border-radius: var(--border-radius-rem);
+  box-shadow: var(--box-shadow);
 }

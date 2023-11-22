@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styles from "./PDashboard.module.css";
 import UserInfo from "components/PDashboard/Dashboard/UserInfo/UserInfo";
 import Title from "components/PDashboard/common/Title/Title";
@@ -14,7 +14,12 @@ import ModalPortal from "components/PDashboard/common/ModalPortal/ModalPortal";
 import SearchModal from "components/PDashboard/common/ModalPortal/SearchModal";
 import { db } from "lib/api";
 import { useDispatch, useSelector } from "react-redux";
-import { userCodeAction, userAction, userListAction, surveyResultAction } from "redux/features/pDashboard";
+import {
+  userCodeAction,
+  userAction,
+  userListAction,
+  surveyResultAction,
+} from "redux/features/pDashboard";
 import { RootState } from "store";
 import CalendarModal from "components/PDashboard/common/ModalPortal/CalendarModal";
 import SummaryTable from "components/PDashboard/Dashboard/SummaryTable/SummaryTable";
@@ -37,19 +42,19 @@ export default function PDashboard() {
     if (type === "search") {
       setOpenModal({
         ...openModal,
-        showSearchbar: true
+        showSearchbar: true,
       });
     } else if (type === "calendar") {
       setOpenModal({
         ...openModal,
-        showCalendar: true
-      })
+        showCalendar: true,
+      });
     }
   };
   const onCloseModal = () => {
     setOpenModal({
       showCalendar: false,
-      showSearchbar: false
+      showSearchbar: false,
     });
   };
 
@@ -57,9 +62,9 @@ export default function PDashboard() {
     dispatch(userCodeAction(""));
     dispatch(userAction(null));
     dispatch(surveyResultAction([]));
-  }
+  };
 
-  const fetchUserList = async () => {
+  const fetchUserList = useCallback(async () => {
     let { data, error } = await db
       .selectUserInfo()
       .select("*")
@@ -69,19 +74,21 @@ export default function PDashboard() {
     } else {
       dispatch(userListAction(data as PUserInfo[]));
     }
-  };
+  }, [dispatch]);
 
   useEffect(() => {
     fetchUserList();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchUserList]);
 
   return (
     <div className={styles.container}>
       <header className={styles.header}>
         <Title>Dashboard</Title>
         <div className={styles.btnGroup}>
-          <div className={styles.iconBox} onClick={() => onOpenModal("calendar")}>
+          <div
+            className={styles.iconBox}
+            onClick={() => onOpenModal("calendar")}
+          >
             <CalendarIcon />
             <span>calendar</span>
           </div>
@@ -100,9 +107,11 @@ export default function PDashboard() {
       <Tabs />
       <main className={styles.main}>
         <Outlet />
-        {pathname === "/p-dashboard" && <div className={styles.overview}>
-          <SummaryTable />
-        </div>}
+        {pathname === "/p-dashboard" && (
+          <div className={styles.overview}>
+            <SummaryTable />
+          </div>
+        )}
       </main>
       <ModalPortal>
         {openModal.showSearchbar && !openModal.showCalendar ? (
@@ -110,10 +119,14 @@ export default function PDashboard() {
             onCloseModal={onCloseModal}
             setOpenModal={setOpenModal}
           />
-        ) : openModal.showCalendar && !openModal.showSearchbar ?
-          <CalendarModal value={value} onChange={onChange} onCloseModal={onCloseModal} setOpenModal={setOpenModal} />
-
-          : null}
+        ) : openModal.showCalendar && !openModal.showSearchbar ? (
+          <CalendarModal
+            value={value}
+            onChange={onChange}
+            onCloseModal={onCloseModal}
+            setOpenModal={setOpenModal}
+          />
+        ) : null}
       </ModalPortal>
     </div>
   );
