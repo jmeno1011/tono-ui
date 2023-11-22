@@ -18,6 +18,11 @@ export default function Nav() {
                 <ul className={styles.ulI}>
                     <li className={styles.li}><Link to={"/p-dashboard"}>P-Dashboard</Link></li>
                 </ul>
+                <hr className={styles.hr} />
+                <h5 className={styles.h5}>UI</h5>
+                <ul className={styles.ulI}>
+                    <li className={styles.li}><Link to={"/react-table"}>Table</Link></li>
+                </ul>
             </div>
         </div>
     </nav>

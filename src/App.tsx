@@ -6,6 +6,7 @@ import { PDashboard, PLogin, PSurvey, State, Trend } from "pages/dashboard1";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
 import { Layout, PLayout } from "layout";
+import ReactTable from "pages/UI/ReactTable";
 
 function App() {
   const { pathname } = useLocation();
@@ -16,6 +17,8 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
+        {/* UI */}
+        <Route path="react-table" element={<ReactTable />} />
       </Route>
       <Route
         path="/p-dashboard"
