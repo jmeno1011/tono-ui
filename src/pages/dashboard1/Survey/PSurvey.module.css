@@ -1,4 +1,18 @@
 .container{
   padding: 20px;
   padding-bottom: 60px;
+  position: relative;
+}
+
+.header{
+  padding: .5rem 0.25rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid silver;
+  position: sticky;
+  top: 0;
+  background-color: var(--p-container-background);
+}
+
+.page{
+  padding-top: 60px;
 }

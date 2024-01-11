@@ -6,10 +6,10 @@ import SurveyList from 'components/PDashboard/Dashboard/SurveyList/SurveyList'
 export default function PSurvey() {
   return (
     <div className={styles.container}>
-      <header>
+      <header className={styles.header}>
         <Title>Survey</Title>
       </header>
-      <div>
+      <div className={styles.page}>
         <SurveyList />
       </div>
     </div>
