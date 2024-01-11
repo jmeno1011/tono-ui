@@ -3,7 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { ReactComponent as Refresh } from "assets/p-dashboard/round-refresh.svg";
 import { ReactComponent as CalendarIcon } from "assets/p-dashboard/calendar.svg";
 import { ModalState, PUserInfo, Value } from "types/pType";
-import { db } from "lib/api";
+import { db } from "lib/services/api";
 import { RootState } from "store";
 import { useDispatch, useSelector } from "react-redux";
 import {

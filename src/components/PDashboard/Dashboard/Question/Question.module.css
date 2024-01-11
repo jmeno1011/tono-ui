@@ -1,0 +1,40 @@
+.container{
+  padding: 5px 10px;
+}
+
+.header{
+  margin-bottom: 10px;
+}
+
+.header > h3{
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.scoreList{
+  padding-left: 24px;
+  display: flex;
+  gap: 20px;
+}
+
+.question{
+  padding: 3px 6px;
+  background-color: #fff;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--p-color);
+  background-color: #fff;
+  border: 1px solid var(--p-color);
+  cursor: pointer;
+}
+
+.selected{
+  color: var(--p-secondary-color);
+}
+
+.question:hover{
+  background-color: aliceblue;
+  background-color: var(--p-container-color);
+}

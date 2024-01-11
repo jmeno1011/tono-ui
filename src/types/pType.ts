@@ -53,7 +53,13 @@ export interface Figures {
   figure3: number | string;
 }
 
-export interface ModalState{
+export interface ModalState {
   showCalendar: boolean;
   showSearchbar: boolean;
+}
+
+export interface IScoreList {
+  id: string;
+  score: number,
+  text: string;
 }

@@ -16,7 +16,7 @@ import {
   userAction,
   surveyResultAction,
 } from "redux/features/pDashboard";
-import { db } from "lib/api";
+import { db } from "lib/services/api";
 import styles from "./SearchModal.module.css";
 
 interface SearchModalProps {
