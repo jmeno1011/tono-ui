@@ -31,7 +31,8 @@
 }
 
 .selected{
-  color: var(--p-secondary-color);
+  background-color: var(--p-secondary-color);
+  color: #fff;
 }
 
 .question:hover{

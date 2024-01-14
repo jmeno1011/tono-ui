@@ -63,3 +63,9 @@ export interface IScoreList {
   score: number,
   text: string;
 }
+
+export interface IScore{
+  [key: string] : {
+    score: number
+  }
+}
