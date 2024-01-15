@@ -21,3 +21,11 @@
 - user : user의 info가 있음
 - userList : user의 info 목록들
 - surveyResult : user의 survey 결과가 있음
+
+#### p-dashboard 페이지별 설명
+- p-dashboard
+  - summary: 유저의 간략한 정보의 목록을 보여주는 페이지
+  - description: 선택된 유저의 대한 survey내용을 그래프로 표현
+- survey
+  - survey의 결과중 레벨별 점수를 등록하는 목록을 준비하여 저장시키기
+  - 유저를 선택 후 survey를 직접 선택하여 결과를 저장하는 방식을 보여줌
