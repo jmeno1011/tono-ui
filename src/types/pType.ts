@@ -54,8 +54,8 @@ export interface Figures {
 }
 
 export interface ModalState {
-  showCalendar: boolean;
-  showSearchbar: boolean;
+  showCalendar?: boolean;
+  showSearchbar?: boolean;
 }
 
 export interface IScoreList {

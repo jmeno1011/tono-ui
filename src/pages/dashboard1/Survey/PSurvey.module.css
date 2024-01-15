@@ -11,8 +11,11 @@
   position: sticky;
   top: 0;
   background-color: var(--p-container-background);
+  display: flex;
+  flex-direction: column;
 }
 
-/* .page{
-  padding-top: 60px;
-} */
+.hHeader{
+  display: flex;
+  justify-content: space-between;
+}
