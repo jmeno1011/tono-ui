@@ -6,6 +6,10 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { persistor, store } from "store";
 import { PersistGate } from "redux-persist/integration/react";
+import { clarity } from "react-microsoft-clarity";
+
+// n8kinqboxg
+clarity.init("n8kinqboxg");
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
